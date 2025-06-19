@@ -10,6 +10,6 @@ import java.util.*;
  * @author Fmalu
  */
 public class Insumo {
-    private Prov
+    
     
 }
