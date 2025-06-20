@@ -10,10 +10,20 @@ public class Servicio {
     
     private String codigo,nombre;
     private double precio;
+    private ArrayList<HistorialPrecios> listHistorialPrecios= new ArrayList<>(); 
 
 
     public Servicio() {
     }
+    
+
+    public Servicio(String codigo, String nombre, double precio, ArrayList<HistorialPrecios> listHistorialPrecios) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.listHistorialPrecios = listHistorialPrecios;
+    }
+
 
     public Servicio(String codigo, String nombre, double precio) {
         this.codigo = codigo;
