@@ -6,7 +6,7 @@ import java.util.*;
 public class HistorialPrecios {
     private Date fechaCambio;
     private double precioAntiguo,precioNuevo;
-    private ArrayList<HistorialPrecios> listHistorialPrecios;       //declarada de momento
+    private ArrayList<HistorialPrecios> listHistorialPrecios;       //solamente declarada 
 
     public HistorialPrecios() {
     }
