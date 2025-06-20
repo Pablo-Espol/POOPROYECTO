@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 package modelo;
 import java.util.*;
@@ -11,5 +7,33 @@ import java.util.*;
  */
 public class Insumo {
     
-    
+    private String descripcion;
+    private Date fechaRegistro;
+
+
+    public Insumo() {
+    }
+
+
+    public Insumo(String descripcion, Date fechaRegistro) {
+        this.descripcion = descripcion;
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    public String getDescripcion() {
+        return this.descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Date getFechaRegistro() {
+        return this.fechaRegistro;
+    }
+
+    public void setFechaRegistro(Date fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
 }
