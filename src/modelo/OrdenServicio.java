@@ -12,4 +12,14 @@ public class OrdenServicio {
 
 
     public OrdenServicio(){}
+
+
+    public OrdenServicio(Cliente cliente, Tecnico tecnico, Date fechaServicio, String placaVehiculo, double totalOrden) {
+        this.cliente = cliente;
+        this.tecnico = tecnico;
+        this.fechaServicio = fechaServicio;
+        this.placaVehiculo = placaVehiculo;
+        this.totalOrden = totalOrden;
+    }
+
 }
