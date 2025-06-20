@@ -11,4 +11,5 @@ public class OrdenServicio {
     private double totalOrden;
 
 
+    public OrdenServicio(){}
 }
