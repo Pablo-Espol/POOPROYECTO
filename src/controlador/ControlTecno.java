@@ -30,6 +30,8 @@ public class ControlTecno {
         client.add(new Cliente("0900224455", "Pedro Alvarado", "0999910741", "9 de Octubre y Boyaca", TipoCliente.EMPRESARIAL));
         client.add(new Cliente("0999007845", "Miguel Rodriguez", "0910203040", "Rumichaca y Aguirre", TipoCliente.EMPRESARIAL));
 
+        tecni.add(new Tenico());
+
         
 
 
