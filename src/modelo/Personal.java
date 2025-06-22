@@ -20,6 +20,11 @@ public abstract class Personal {
         this.direccion = direccion;
         this.telefono = telefono;
     }
+    public Personal(String identificacion, String nombre, String telefono) {
+        this.identificacion = identificacion;
+        this.nombre = nombre;
+        this.telefono = telefono;
+    }
 
     public String getIdentificacion() {
         return identificacion;

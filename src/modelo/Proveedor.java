@@ -11,8 +11,8 @@ package modelo;
 public class Proveedor extends Personal {
     private String descripcion;
     
-    public Proveedor(String identificacion, String nombre, String direccion, String telefono, String descripcion) {
-        super(identificacion, nombre, direccion, telefono);
+    public Proveedor(String identificacion, String nombre, String telefono, String descripcion) {
+        super(identificacion, nombre, telefono);
         this.descripcion=descripcion;
     }
 

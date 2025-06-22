@@ -11,8 +11,8 @@ package modelo;
 public class Tecnico extends Personal {
     private String especialidad;
 
-    public Tecnico(String identificacion, String nombre, String direccion, String telefono,String especialidad) {
-        super(identificacion, nombre, direccion, telefono);
+    public Tecnico(String identificacion, String nombre, String telefono,String especialidad) {
+        super(identificacion, nombre, telefono);
         this.especialidad=especialidad;
     }
 
