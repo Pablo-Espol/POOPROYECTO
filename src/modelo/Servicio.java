@@ -10,7 +10,7 @@ public class Servicio {
     
     private String codigo,nombre;
     private double precio;
-    private ArrayList<HistorialPrecios> listHistorialPrecios= new ArrayList<>(); 
+    private ArrayList<HistorialPrecios> listHistorialPrecios=new ArrayList<>();
 
 
     public Servicio() {
