@@ -32,8 +32,8 @@ Scanner sc = new Scanner(System.in);
         case 3:
         vista.agregarTecnico(sc);
         break;
-        case 4:
-        vista.agregarServicio(sc);
+        case 4: 
+        vista.administrarServicios(sc);
         
       }
 

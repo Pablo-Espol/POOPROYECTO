@@ -130,10 +130,62 @@ public class Vista {
         Servicio servicio= controlador.agregarServicio(nombre, precio);
         System.out.println("El servicio fue agregado exitosamente");
         System.out.println(controlador.getListService());
-        
+
+
+
 
 
     }
+
+    public void editarServicio(Scanner scanner){
+        System.out.println("Editar Servicio");
+        scanner.nextLine();
+        System.out.println("Ingrese el codigo del servicio a editar");
+        String codigo = scanner.nextLine();
+        Servicio servicio = controlador.editarServicio(codigo);
+        
+        
+        if (servicio != null) {
+            System.out.println("El servicio fue editado exitosamente");
+            System.out.println(controlador.getListService());
+        } else {
+            System.out.println("El servicio no existe");
+        }
+        
+    }
+
+    public void administrarServicios(Scanner scanner){
+        int opcion;;
+
+        do{
+            System.out.println("1. Agregar Servicio");
+            System.out.println("2. Editar Servicio");
+            System.out.println("3. Salir");
+            System.out.println("Seleccione una opcion:");
+
+            opcion= scanner.nextInt();
+             // Limpiar el buffer
+            switch (opcion) {
+                case 1:
+                agregarServicio(scanner);
+                break;
+                case 2:
+                editarServicio(scanner);
+                break;  
+                case 3: 
+                System.out.println("Saliendo del menu de servicios");}
+
+
+
+          }  while (opcion != 3);  
+
+
+        
+
+        
+    }
+
+    
     
 
     

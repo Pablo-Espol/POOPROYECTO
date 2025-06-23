@@ -6,10 +6,18 @@ import java.util.*;
 public class HistorialPrecios {
     private Date fechaCambio;
     private double precioAntiguo,precioNuevo;
-         //solamente declarada 
+    private ArrayList<HistorialPrecios> listHistorialPrecios;     //solamente declarada 
 
     public HistorialPrecios() {
     }
+    
+
+    public HistorialPrecios(double precioAntiguo, double precioNuevo) {
+        this.precioAntiguo = precioAntiguo;
+        this.precioNuevo = precioNuevo;
+        this.fechaCambio = new Date(); // Asignar la fecha actual al crear un nuevo
+    }
+
 
     public HistorialPrecios(Date fechaCambio, double precioAntiguo, double precioNuevo) {
         this.fechaCambio = fechaCambio;
@@ -39,6 +47,12 @@ public class HistorialPrecios {
 
     public void setPrecioNuevo(double precioNuevo) {
         this.precioNuevo = precioNuevo;
+    }
+    public ArrayList<HistorialPrecios> getListHistorialPrecios() {
+        return this.listHistorialPrecios;
+    }
+    public void setListHistorialPrecios(ArrayList<HistorialPrecios> listHistorialPrecios) {
+        this.listHistorialPrecios = listHistorialPrecios;
     }
 
 

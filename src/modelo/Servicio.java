@@ -62,7 +62,10 @@ public class Servicio {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-
+    
+    public ArrayList<HistorialPrecios> getListHistorialPrecios() {
+        return this.listHistorialPrecios;
+    }
   
 
     @Override

@@ -141,9 +141,30 @@ public class ControlTecno {
     }
 
     public Servicio editarServicio(String codigo){
-        
+        for (Servicio servicio: listService){
+            if(servicio.getCodigo().equals(codigo)){
+                double precioAntiguo= servicio.getPrecio();
+                System.out.println("Ingrese el nuevo precio del servicio: ");
+                double nuevoPrecio = sc.nextDouble();
+                servicio.setPrecio(nuevoPrecio);
+                servicio.getListHistorialPrecios().add(new HistorialPrecios(precioAntiguo, nuevoPrecio));
+                listService.add(new Servicio( codigo, servicio.getNombre(), nuevoPrecio) );
+                return servicio; 
+            }
+        }
+        return null;
+    }
 
+    public ArrayList<HistorialPrecios> getHistorialPrecios() {
+        if (listService.isEmpty()){
+            System.out.println("No hay servicios disponibles.");
 
+        }else{
+            System.out.println("Historial de precios por servicio");
+            for (HistorialPrecios h: )
+        }
+        }
+        return null; // Si no se encuentra el servicio
     }
 
 }
