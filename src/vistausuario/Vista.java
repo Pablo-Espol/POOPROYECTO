@@ -143,11 +143,12 @@ public class Vista {
         System.out.println("Ingrese el codigo del servicio a editar");
         String codigo = scanner.nextLine();
         Servicio servicio = controlador.editarServicio(codigo);
-        
-        
+
         if (servicio != null) {
             System.out.println("El servicio fue editado exitosamente");
             System.out.println(controlador.getListService());
+            System.out.println("Historial de precios del servicio:");
+            System.out.println(servicio.getListHistorialPrecios());
         } else {
             System.out.println("El servicio no existe");
         }

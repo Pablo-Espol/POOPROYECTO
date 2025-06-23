@@ -161,10 +161,15 @@ public class ControlTecno {
 
         }else{
             System.out.println("Historial de precios por servicio");
-            for (HistorialPrecios h: )
+            for (Servicio servicio : listService) {
+                System.out.println("Servicio: " + servicio.getNombre() + " (Código: " + servicio.getCodigo() + ")");
+                for (HistorialPrecios h : servicio.getListHistorialPrecios()) {
+                    System.out.println("  Precio anterior: " + h.getPrecioAntiguo() + ", Nuevo precio: " + h.getPrecioNuevo());
+                }
+            }
         }
-        }
-        return null; // Si no se encuentra el servicio
+        
+        return null;
     }
 
 }
