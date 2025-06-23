@@ -25,6 +25,13 @@ Scanner sc = new Scanner(System.in);
        
         case 1:
         vista.agregarCliente(sc);
+        break;
+        case 2:
+        vista.agregarProveedor(sc);
+        break;
+        case 3:
+        vista.agregarTecnico(sc);
+        breaks
       }
 
     } while (opcion != 10);

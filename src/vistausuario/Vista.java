@@ -3,8 +3,8 @@ package vistausuario;
 import java.util.Scanner;
 
 import controlador.ControlTecno;
-import modelo.Cliente;
-import modelo.TipoCliente;
+import modelo.*;
+
 
 public class Vista {
 
@@ -28,6 +28,7 @@ public class Vista {
         System.out.println("10. Salir");
 
     }
+    //Metodo para agregar cliente
 
     //String identificacion,String nombre,String telefono,String direccion,TipoCliente tipoCliente
      public void agregarCliente(Scanner scanner){
@@ -42,15 +43,20 @@ public class Vista {
               String direccion = scanner.nextLine();
 
               //Asegurando que el tipo cliente sea válido
-                TipoCliente tipoCliente = null;
+            TipoCliente tipoCliente = null;
             while (tipoCliente == null) {
                 System.out.print("Ingrese el tipo de cliente (PERSONAL o EMPRESARIAL): ");
-                String tipoTexto = scanner.nextLine().trim().toUpperCase(); 
-            try {
-                tipoCliente = TipoCliente.valueOf(tipoTexto);
-            } catch (IllegalArgumentException e) {
-            System.out.println("Tipo inválido. Intente nuevamente.");
-            }
+                String tipoTextoc = scanner.nextLine().toUpperCase(); 
+
+                for (TipoCliente tipo : TipoCliente.values()) {
+                    if (tipo.name().equals(tipoTextoc)) {
+                        tipoCliente = tipo;
+                        break;
+                    }
+                }
+                if (tipoCliente == null) {
+                    System.out.println("Tipo inválido. Intente nuevamente.");
+                }
             }
 
             //return cliente o null
@@ -65,6 +71,55 @@ public class Vista {
 
             System.out.println(controlador.getListClient());
     }
+
+    //Metodo para Adminnistar proveedor
+
+    //Agregar Proveedor
+    public void agregarProveedor(Scanner scanner){
+        System.out.print("Ingrese la identificacion del proveedor: ");
+        scanner.nextLine(); 
+        String id = scanner.nextLine();
+        System.out.print("Ingrese el nombre del proveedor: ");
+        String nombre = scanner.nextLine();
+        System.out.println("Ingrese el telefono: ");
+        String telefono = scanner.nextLine();
+        System.out.println("Ingrese la dirección: ");
+        String direccion = scanner.nextLine();
+
+        Proveedor proveedor =controlador.agregarProveedor(id,nombre,telefono,direccion);
+
+        if (proveedor == null) {
+            System.out.println("El proveedor se agregó exitosamente");
+        } else {
+            System.out.println("El proveedor ya existe");
+        }
+        
+        System.out.println(controlador.getListSuplier());
+    }
+
+    //Metodo para administrar tecnicos
+    public void agregarTecnico(Scanner scanner){
+        System.out.println("Agregar Tecnico");
+        scanner.nextLine();
+        System.out.println("Ingrese la identificacion del tecnico");
+        String id= scanner.nextLine();
+        System.out.println("Ingres el nombre de Tecnico");
+        String nombre = scanner.nextLine();
+        System.out.println("Ingrese el telefono del tecnico");
+        String telefono= scanner.nextLine();
+
+        Tecnico tecnico = controlador.agregartTecnico(id, nombre, telefono);
+        
+        if (tecnico == null){
+            System.out.println("El tecnico fue agregado exitosamente");
+
+        }else{
+            System.out.println("El tecnico ya existe");
+        }
+        System.out.println(controlador.getListTecni());
+    
+    }
+    
 
     
 }

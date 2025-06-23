@@ -27,13 +27,31 @@ public class ControlTecno {
     }
     public ArrayList<Tecnico> getListTecni() {
         return listTecni;
-    }   
-    
+    } 
+    public void setListTecni(ArrayList<Tecnico> listTecni) {
+        this.listTecni = listTecni;
+    }
 
+    public ArrayList<Proveedor> getListSuplier() {
+        return listSuplier;
+    }
+    public void setListSuplier(ArrayList<Proveedor> listSuplier) {
+        this.listSuplier = listSuplier;
+    }
+    public ArrayList<Servicio> getListService() {
+        return listService;
+    }
+    public void setListService(ArrayList<Servicio> listService) {
+        this.listService = listService;
+    }
+    public ArrayList<OrdenServicio> getListOrden() {
+        return listOrden;
+    }
+    public void setListOrden(ArrayList<OrdenServicio> listOrden) {
+        this.listOrden = listOrden;
+    }
+       //Creación metodo inicializarApp()
 
-
-
-    //Creación metodo inicializarApp()
 
     public void inicializarApp(){
         //Inicializa con los  clientes
@@ -74,13 +92,10 @@ public class ControlTecno {
     //Metodos para administrar clientes
      public  Cliente agregarCliente(String identificacion,String nombre,String telefono,String direccion,TipoCliente tipoCliente){
         for (Cliente cliente: listClient){
-            if(cliente.getIdentificacion().equals(identificacion)){
-                
-                
+            if(cliente.getIdentificacion().equals(identificacion)){    
                 return cliente;// retorna esto y sale el metodo
             }
         }
-        
         listClient.add(new Cliente(identificacion,nombre, telefono,direccion,tipoCliente));
         return null;//todo bien no necesito enviar algún mensaje
         
@@ -88,8 +103,26 @@ public class ControlTecno {
 
     //Metodos para administrar proveedores 
 
-    public void agregarProveedor(){
+    public Proveedor agregarProveedor(String identificacion,String nombre,String telefono,String direccion){
+        for (Proveedor proveedor: listSuplier){
+            if(proveedor.getIdentificacion().equals(identificacion)){    
+                return proveedor;// retorna esto y sale el metodo
+            }
+        }
+        listSuplier.add(new Proveedor(identificacion,nombre, telefono,direccion));
+        return null;//todo bien no necesito enviar algún mensaje
         
         
+    }
+
+    //Metodos para administrar tecnicos
+    public Tecnico agregartTecnico(String identificacion,String nombre, String telefono){
+        for (Tecnico tecnico:listTecni){
+            if (tecnico.getIdentificacion().equals(identificacion)){
+                return tecnico; // retorna esto y sale el metodo
+            }
+        }
+        listTecni.add(new Tecnico(identificacion, nombre, telefono));
+        return null;
     }
 }

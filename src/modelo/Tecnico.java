@@ -11,14 +11,33 @@ package modelo;
 public class Tecnico extends Personal {
     private String especialidad;
 
+    
+
+    public Tecnico(String identificacion, String nombre, String telefono) {
+        super(identificacion, nombre, telefono);
+    }
+
+
     public Tecnico(String identificacion, String nombre, String telefono,String especialidad) {
         super(identificacion, nombre, telefono);
         this.especialidad=especialidad;
     }
+    
+
 
     @Override
     public String toString() {
         return super.toString() + String.format(", Especialidad: %s", especialidad);
+    }
+
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
     }
     
     
