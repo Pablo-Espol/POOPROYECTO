@@ -27,7 +27,7 @@ Scanner sc = new Scanner(System.in);
         vista.agregarCliente(sc);
       }
 
-    } while (opcion != 3);
+    } while (opcion != 10);
 
 
 sc.close();
