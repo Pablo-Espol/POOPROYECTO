@@ -47,17 +47,7 @@ public class ControlTecno {
         service.add(new Servicio("005", "Cambio de neumaticos", 60.0));     
         service.add(new Servicio("006", "Cambio de aceite", 30.0));
 
-        //Inicializa con las ordenes de servicio
-
-
-
-
-        
-
-
-
-        
-
+        //Inicializa con las ordenes de servicio// dd-mm-yyyy
 
     }
 

@@ -9,20 +9,29 @@ public class OrdenServicio {
     private Date fechaServicio;
     private String placaVehiculo;
     private double totalOrden;
+    private TipoVehiculo tipoVehiculo;
+    private ArrayList <DetalleServicio> servicios;
 
 
     public OrdenServicio(){}
 
+    public OrdenServicio(Cliente cliente, TipoVehiculo tipoVehiculo, String placaVehiculo){
+        this.cliente = cliente;
+        this .tipoVehiculo = tipoVehiculo;
+        this.placaVehiculo = placaVehiculo;
+    }
 
-    public OrdenServicio(Cliente cliente, Tecnico tecnico, Date fechaServicio, String placaVehiculo, double totalOrden) {
+    public OrdenServicio(Cliente cliente, Tecnico tecnico, Date fechaServicio, String placaVehiculo, double totalOrden,
+            TipoVehiculo tipoVehiculo, ArrayList<DetalleServicio> servicios) {
         this.cliente = cliente;
         this.tecnico = tecnico;
         this.fechaServicio = fechaServicio;
         this.placaVehiculo = placaVehiculo;
         this.totalOrden = totalOrden;
+        this.tipoVehiculo = tipoVehiculo;
+        this.servicios = servicios;
     }
-
-
+    
     public Cliente getCliente() {
         return this.cliente;
     }
@@ -64,17 +73,26 @@ public class OrdenServicio {
     }
 
 
-
-    @Override
-    public String toString() {
-        return "{" +
-            " cliente='" + getCliente() + "'" +
-            ", tecnico='" + getTecnico() + "'" +
-            ", fechaServicio='" + getFechaServicio() + "'" +
-            ", placaVehiculo='" + getPlacaVehiculo() + "'" +
-            ", totalOrden='" + getTotalOrden() + "'" +
-            "}";
+    public TipoVehiculo getTipoVehiculo() {
+        return tipoVehiculo;
     }
+
+
+    public void setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+        this.tipoVehiculo = tipoVehiculo;
+    }
+
+
+    public ArrayList<DetalleServicio> getServicios() {
+        return servicios;
+    }
+
+
+    public void setServicios(ArrayList<DetalleServicio> servicios) {
+        this.servicios = servicios;
+    }
+    
+    
 
 
 }
