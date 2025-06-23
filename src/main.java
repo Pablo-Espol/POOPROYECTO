@@ -31,7 +31,7 @@ Scanner sc = new Scanner(System.in);
         break;
         case 3:
         vista.agregarTecnico(sc);
-        breaks
+        break:
       }
 
     } while (opcion != 10);
