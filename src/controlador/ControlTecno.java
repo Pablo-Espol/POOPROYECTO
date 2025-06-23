@@ -148,29 +148,29 @@ public class ControlTecno {
                 double nuevoPrecio = sc.nextDouble();
                 servicio.setPrecio(nuevoPrecio);
                 servicio.getListHistorialPrecios().add(new HistorialPrecios(precioAntiguo, nuevoPrecio));
-                listService.add(new Servicio( codigo, servicio.getNombre(), nuevoPrecio) );
+                
                 return servicio; 
             }
         }
         return null;
     }
 
-    public ArrayList<HistorialPrecios> getHistorialPrecios() {
-        if (listService.isEmpty()){
-            System.out.println("No hay servicios disponibles.");
+    public void mostrarHistorialPreciosDeTodos() {
+    
 
-        }else{
-            System.out.println("Historial de precios por servicio");
-            for (Servicio servicio : listService) {
-                System.out.println("Servicio: " + servicio.getNombre() + " (Código: " + servicio.getCodigo() + ")");
-                for (HistorialPrecios h : servicio.getListHistorialPrecios()) {
-                    System.out.println("  Precio anterior: " + h.getPrecioAntiguo() + ", Nuevo precio: " + h.getPrecioNuevo());
-                }
+    System.out.println("Historial de precios por servicio:");
+
+    for (Servicio servicio : listService) {
+        System.out.println("Servicio: " + servicio.getNombre() + " (Código: " + servicio.getCodigo() + ")");
+        if (servicio.getListHistorialPrecios().isEmpty()) {
+            System.out.println("  No hay historial de precios para este servicio.");
+        } else {
+            for (HistorialPrecios h : servicio.getListHistorialPrecios()) {
+                System.out.println("  Precio anterior: " + h.getPrecioAntiguo() + ", Nuevo precio: " + h.getPrecioNuevo() + ", Fecha: " + h.getFechaCambio());
             }
         }
-        
-        return null;
     }
+}
 
 }
     

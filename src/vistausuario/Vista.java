@@ -148,7 +148,9 @@ public class Vista {
             System.out.println("El servicio fue editado exitosamente");
             System.out.println(controlador.getListService());
             System.out.println("Historial de precios del servicio:");
-            System.out.println(servicio.getListHistorialPrecios());
+            for (HistorialPrecios historial : servicio.getListHistorialPrecios()) {
+                System.out.println(historial);
+            }
         } else {
             System.out.println("El servicio no existe");
         }
