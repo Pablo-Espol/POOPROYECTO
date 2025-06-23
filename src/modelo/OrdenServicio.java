@@ -31,6 +31,7 @@ public class OrdenServicio {
         this.tipoVehiculo = tipoVehiculo;
         this.servicios = servicios;
     }
+    
     public Cliente getCliente() {
         return this.cliente;
     }
