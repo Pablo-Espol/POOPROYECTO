@@ -36,4 +36,14 @@ public class Insumo {
         this.fechaRegistro = fechaRegistro;
     }
 
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " descripcion='" + getDescripcion() + "'" +
+            ", fechaRegistro='" + getFechaRegistro() + "'" +
+            "}";
+    }
+
 }

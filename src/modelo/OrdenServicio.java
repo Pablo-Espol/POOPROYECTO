@@ -64,4 +64,17 @@ public class OrdenServicio {
     }
 
 
+
+    @Override
+    public String toString() {
+        return "{" +
+            " cliente='" + getCliente() + "'" +
+            ", tecnico='" + getTecnico() + "'" +
+            ", fechaServicio='" + getFechaServicio() + "'" +
+            ", placaVehiculo='" + getPlacaVehiculo() + "'" +
+            ", totalOrden='" + getTotalOrden() + "'" +
+            "}";
+    }
+
+
 }
