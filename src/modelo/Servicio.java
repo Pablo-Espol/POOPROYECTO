@@ -15,6 +15,14 @@ public class Servicio {
 
     public Servicio() {
     }
+
+    public Servicio(String nombre, double precio){
+        this.nombre=nombre;
+        this.precio=precio;
+    }
+    public Servicio(String codigo){
+        this.codigo = codigo;
+    }
     
 
     public Servicio(String codigo, String nombre, double precio, ArrayList<HistorialPrecios> listHistorialPrecios) {

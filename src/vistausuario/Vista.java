@@ -48,8 +48,8 @@ public class Vista {
                 System.out.print("Ingrese el tipo de cliente (PERSONAL o EMPRESARIAL): ");
                 String tipoTextoc = scanner.nextLine().toUpperCase(); 
 
-                for (TipoCliente tipo : TipoCliente.values()) {
-                    if (tipo.name().equals(tipoTextoc)) {
+                for (TipoCliente tipo : TipoCliente.values()) {// Recorre los valores del enum guardados en una lista
+                    if (tipo.name().equals(tipoTextoc)) { // compara el nombre del enum con el texto ingresado y si coincide le asigna
                         tipoCliente = tipo;
                         break;
                     }
@@ -118,6 +118,21 @@ public class Vista {
         }
         System.out.println(controlador.getListTecni());
     
+    }
+
+    public void agregarServicio(Scanner scanner){
+        System.out.println("Agregar Servicio ");
+        scanner.nextLine();
+        System.out.println("Ingrese el nombre del servicio");
+        String nombre= scanner.nextLine();
+        System.out.println("Ingrese el precio del servicio");
+        double precio = scanner.nextDouble();
+        Servicio servicio= controlador.agregarServicio(nombre, precio);
+        System.out.println("El servicio fue agregado exitosamente");
+        System.out.println(controlador.getListService());
+        
+
+
     }
     
 

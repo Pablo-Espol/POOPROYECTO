@@ -125,4 +125,26 @@ public class ControlTecno {
         listTecni.add(new Tecnico(identificacion, nombre, telefono));
         return null;
     }
+
+    //Metodos para administrar servicios
+    //Agregar
+    public Servicio agregarServicio(String nombre, double precio){
+        Servicio ultimo = listService.get(listService.size()-1);
+        String code= ultimo.getCodigo();
+        int coidgo= Integer.parseInt(code);
+        int nuevoCodigo = coidgo + 1;
+        String codeLista= String.format("%03d", nuevoCodigo);
+        Servicio nuevoServicio= new Servicio( codeLista, nombre, precio);
+        listService.add(nuevoServicio);
+        return null;
+
+    }
+
+    public Servicio editarServicio(String codigo){
+        
+
+
+    }
+
 }
+    

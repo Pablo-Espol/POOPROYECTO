@@ -31,7 +31,10 @@ Scanner sc = new Scanner(System.in);
         break;
         case 3:
         vista.agregarTecnico(sc);
-        break:
+        break;
+        case 4:
+        vista.agregarServicio(sc);
+        
       }
 
     } while (opcion != 10);
