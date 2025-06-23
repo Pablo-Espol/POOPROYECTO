@@ -15,11 +15,14 @@ public class OrdenServicio {
 
     public OrdenServicio(){}
 
-    public OrdenServicio(Cliente cliente, TipoVehiculo tipoVehiculo, String placaVehiculo){
+    //constructor ordenes
+    public OrdenServicio(Cliente cliente, Date fechaServicio, TipoVehiculo tipoVehiculo, String placaVehiculo){
         this.cliente = cliente;
         this .tipoVehiculo = tipoVehiculo;
         this.placaVehiculo = placaVehiculo;
+        this.fechaServicio= fechaServicio;
     }
+    //Constructor para generar facturas (clientes empresariales)
 
     public OrdenServicio(Cliente cliente, Tecnico tecnico, Date fechaServicio, String placaVehiculo, double totalOrden,
             TipoVehiculo tipoVehiculo, ArrayList<DetalleServicio> servicios) {

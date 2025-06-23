@@ -26,4 +26,5 @@ public class Cliente extends Personal {
         return super.toString() + String.format(", Tipo: %s", tipoCliente);
     }
     
+
 }

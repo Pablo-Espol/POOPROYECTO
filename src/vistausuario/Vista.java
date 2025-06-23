@@ -2,7 +2,17 @@ package vistausuario;
 
 import java.util.Scanner;
 
+import controlador.ControlTecno;
+import modelo.Cliente;
+import modelo.TipoCliente;
+
 public class Vista {
+
+    ControlTecno controlador;
+
+    public Vista(ControlTecno controlador){
+        this.controlador= controlador;
+    }
 
     public void mostrarMenu(){
         System.out.println("MENU PRINCIPAL");
@@ -17,6 +27,43 @@ public class Vista {
         System.out.println("9. Reporte de atenciones por tecnico");
         System.out.println("10. Salir");
 
+    }
+
+    //String identificacion,String nombre,String telefono,String direccion,TipoCliente tipoCliente
+     public void agregarCliente(Scanner scanner){
+              System.out.print("Ingrese la identificacion del cliente: ");
+              scanner.nextLine(); //buffer
+              String id = scanner.nextLine();
+              System.out.print("Ingrese el nombre del cliente: ");
+              String nombre = scanner.nextLine();
+              System.out.println("Ingrese el telefono: ");
+              String telefono = scanner.nextLine();
+              System.out.println("Ingrese la dirección: ");
+              String direccion = scanner.nextLine();
+
+              //Asegurando que el tipo cliente sea válido
+                TipoCliente tipoCliente = null;
+            while (tipoCliente == null) {
+                System.out.print("Ingrese el tipo de cliente (PERSONAL o EMPRESARIAL): ");
+                String tipoTexto = scanner.nextLine().trim().toUpperCase(); 
+            try {
+                tipoCliente = TipoCliente.valueOf(tipoTexto);
+            } catch (IllegalArgumentException e) {
+            System.out.println("Tipo inválido. Intente nuevamente.");
+            }
+            }
+
+            //return cliente o null
+           Cliente cliente =  controlador.agregarCliente(id,nombre,telefono,direccion,tipoCliente);
+            
+            if (cliente == null) {
+                System.out.println("El cliente se agregó exitosamente");
+            }
+            else{
+                System.out.println("El cliente ya existe");
+            }
+
+            System.out.println(controlador.getListClient());
     }
 
     
