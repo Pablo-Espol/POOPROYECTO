@@ -15,10 +15,7 @@ public class ControlTecno {
         tecni= new ArrayList<>();
         suplier= new ArrayList<>();
         service= new ArrayList<>();
-        orden= new ArrayList<>();
-
-    
-        
+        orden= new ArrayList<>();    
     }
 
     //Creación metodo inicializarApp()
