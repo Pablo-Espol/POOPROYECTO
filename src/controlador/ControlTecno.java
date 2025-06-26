@@ -77,7 +77,37 @@ public class ControlTecno {
         listService.add(new Servicio("005", "Cambio de neumaticos", 60.0));     
         listService.add(new Servicio("006", "Cambio de aceite", 30.0));
 
-        //Inicializa con las ordenes de servicio// dd-mm-yyyy
+        //Creando primero en detalles servicios para asignar los servicios a las ordenes de servicio ya que pide minimo 2
+       ArrayList<DetalleServicio> listDetalle1= new ArrayList<>();
+       listDetalle1.add(new DetalleServicio(2, listService.get(0), listService.get(0).getPrecio()*2)); // 2 * 90.0
+       listDetalle1.add(new DetalleServicio(1, listService.get(1), listService.get(1).getPrecio())); // 1 * 80.0
+       ArrayList<DetalleServicio> listDetalle2= new ArrayList<>();
+       listDetalle2.add(new DetalleServicio(3, listService.get(2), listService.get(2).getPrecio()*3)); // 3 * 40.0
+       listDetalle2.add(new DetalleServicio(4, listService.get(3), listService.get(3).getPrecio()*4)); // 4 * 70.0
+       ArrayList<DetalleServicio> listDetalle3= new ArrayList<>();
+       listDetalle3.add(new DetalleServicio(5, listService.get(4), listService.get(4).getPrecio()*5)); // 5 * 60.0
+       listDetalle3.add(new DetalleServicio(1, listService.get(5), listService.get(5).getPrecio()*1)); // 1 * 30.0
+       ArrayList<DetalleServicio> listDetalles4 = new ArrayList<>();
+       listDetalles4.add(new DetalleServicio(3, listService.get(1), listService.get(1).getPrecio() * 3));//3*80
+       listDetalles4.add(new DetalleServicio(1, listService.get(2), listService.get(2).getPrecio()));//1*80
+        
+       //Inicializa con las ordenes de servicio
+       listOrden.add(new OrdenServicio(listClient.get(0), listTecni.get(0), new Date(), "ABB785", calcularTotalOrden(listDetalles4) ,TipoVehiculo.BUS,listDetalle1));
+       listOrden.add(new OrdenServicio(listClient.get(1), listTecni.get(0), new Date(), "ABB786", calcularTotalOrden(listDetalle3) ,TipoVehiculo.MOTOCICLETA,listDetalle3));
+       listOrden.add(new OrdenServicio(listClient.get(2), listTecni.get(1), new Date(), "ABB787", calcularTotalOrden(listDetalle2) ,TipoVehiculo.VEHICULO,listDetalle2));
+       listOrden.add(new OrdenServicio(listClient.get(3), listTecni.get(1), new Date(), "ABB788", calcularTotalOrden(listDetalles4) ,TipoVehiculo.VEHICULO,listDetalles4));
+
+
+
+       
+
+
+
+        
+
+
+
+
 
     
 
@@ -170,7 +200,19 @@ public class ControlTecno {
             }
         }
     }
-}
+
 
 }
+
+//Metodo para calcular el total de una orden de servicio
+public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
+    double total = 0.0;
+    for (DetalleServicio detalle : detalles) {
+        total += detalle.getSubtotal();
+    }
+    return total;
+
+}
+}
+
     

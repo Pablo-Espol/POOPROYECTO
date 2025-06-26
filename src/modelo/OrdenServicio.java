@@ -25,7 +25,7 @@ public class OrdenServicio {
     //Constructor para generar facturas (clientes empresariales)
 
     public OrdenServicio(Cliente cliente, Tecnico tecnico, Date fechaServicio, String placaVehiculo, double totalOrden,
-            TipoVehiculo tipoVehiculo, ArrayList<DetalleServicio> servicios) {
+    TipoVehiculo tipoVehiculo, ArrayList<DetalleServicio> servicios) {
         this.cliente = cliente;
         this.tecnico = tecnico;
         this.fechaServicio = fechaServicio;
