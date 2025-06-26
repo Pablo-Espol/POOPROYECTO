@@ -213,6 +213,9 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
     return total;
 
 }
+
+// metodo de generar orden de servicio
+
 }
 
     
