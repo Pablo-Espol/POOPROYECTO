@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Date;
-
 import controlador.ControlTecno;
 import modelo.*;
 
@@ -308,17 +307,19 @@ public class Vista {
 
         System.out.print("Ingrese la fecha del Servicio dd/MM/yyyy: ");
         String fechaServicio= scanner.nextLine();  //hay que convertirlo a Tipo Date con metodos de paquete Date
-        
-        Date fechaTexto = null;
+ /**      
+        SimpleDateFormat  fechaTexto = null;
         try {
-            fechaTexto = new SimpleDateFormat("dd/MM/yyyy").parse(fechaServicio);
+             fechaTexto = new SimpleDateFormat("dd/MM/yyyy");
+             Date fechaDate = fechaTexto.parse(fechaServicio);
+            
         } catch (Exception e){
             System.out.println("Formato de fehca invalido. Use dd/MM/yyyy. Operacion cancelada.");
             return;
         }
 
-        TipoVehiculo tipoVehiculo = null;
-        while(tipoVehiculo == null);{
+    */      TipoVehiculo tipoVehiculo = null;
+        while(tipoVehiculo == null){
             System.out.print("Ingrese el tipo de vehiculo: 1.Automovil  2.Motocicleta  3.Bus");
             int tipoV = scanner.nextInt();
             scanner.nextLine();
@@ -339,8 +340,8 @@ public class Vista {
 
         System.out.println("--------LISTA DE SERVICIOS--------");
         for (Servicio cadaServicio : controlador.getListService()) {
-            System.out.println(cadaServicio);
-        }
+        System.out.println("Código: " + cadaServicio.getCodigo() + ", Precio: " + cadaServicio.getPrecio());        
+    }
 
         System.out.print("Ingrese el código del servicio: ");
         int codigo = scanner.nextInt();
@@ -353,10 +354,16 @@ public class Vista {
             System.out.print("Cantidad: ");
             int cantidad = scanner.nextInt();
 
+double servicio = controlador.servicioPorCodigo(codigoString);
+if (servicio == 0.0) {
+    System.out.println("Servicio no encontrado. Verifique el código ingresado.");
+    return;
+}
+double precio = servicio;
 
-            double subtotal = cantidad* controlador.servicioPorCodigo(codigoString).getPrecio();
+            double subtotal = cantidad* precio;
 
-            ordenACalcular.add(new DetalleServicio(cantidad, controlador.servicioPorCodigo(codigoString),subtotal ));
+            ordenACalcular.add(new DetalleServicio(cantidad,subtotal ));
 
             //evitar bucle infinito
             System.out.print("Ingrese código del servicio: ");

@@ -221,15 +221,22 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
 
     //metodo para indexar servicio
     // hay que arreglar
-    public Servicio servicioPorCodigo(String codig){
-            for (Servicio cadaServicio : listService) {
-                if (cadaServicio.getCodigo().trim().equalsIgnoreCase(codig.trim())) {
-            return cadaServicio;  
+    public double servicioPorCodigo(String codig){
+        for (int i = 0; i < listService.size(); i++) {
+           Servicio cadaServicio = listService.get(i);
+            if (cadaServicio.getCodigo().equals(codig.trim())) {
+                return cadaServicio.getPrecio(); // Retorna el precio del servicio encontrado
+            }
         }
+          return 0.0; // Retorna 0 si no se encuentra el servicio 
     }
-    return null;
+    public OrdenServicio generarOrdenServicio(Cliente cliente, Tecnico tecnico, Date fecha, String codigo, TipoVehiculo tipoVehiculo, ArrayList<DetalleServicio> detalles) {
+        OrdenServicio nuevaOrden = new OrdenServicio(cliente, tecnico, fecha, codigo, calcularTotalOrden(detalles), tipoVehiculo, detalles);
+        listOrden.add(nuevaOrden);
+        return nuevaOrden;
     }
 }
+
 
 
     

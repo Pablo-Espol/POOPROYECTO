@@ -12,6 +12,11 @@ public class DetalleServicio {
         this.subtotal = subtotal;
     }
 
+    public DetalleServicio(int cantidad, double subtotal){
+        this.cantidad = cantidad;
+        this.subtotal = subtotal;
+    }
+
     
 
     public int getCantidad() {
