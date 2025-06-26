@@ -343,25 +343,31 @@ public class Vista {
         }
 
         System.out.print("Ingrese el código del servicio: ");
-        String codigo = scanner.nextLine();
-        while (codigo != ("-1")) {
-            
+        int codigo = scanner.nextInt();
+
+        
+
+        while (codigo != (-1)) {
+            String codigoString = String.valueOf(codigo);
+
             System.out.print("Cantidad: ");
             int cantidad = scanner.nextInt();
 
-            double subtotal = cantidad* controlador.indexacionDePrecio(codigo);
 
-            ordenACalcular.add(new DetalleServicio(cantidad, new Servicio(codigo),subtotal ));
+            double subtotal = cantidad* controlador.servicioPorCodigo(codigoString).getPrecio();
+
+            ordenACalcular.add(new DetalleServicio(cantidad, controlador.servicioPorCodigo(codigoString),subtotal ));
 
             //evitar bucle infinito
             System.out.print("Ingrese código del servicio: ");
-            codigo = scanner.nextLine();
+            codigo = scanner.nextInt();
+            //scanner.nextLine(); //Limpia buffer
         }
             //AQUI VA CODIGO QUE COMUNICA CON EL CONTROLADOR
+            System.out.println("Total a pagar:");
+            System.out.println(controlador.calcularTotalOrden(ordenACalcular));
 
-            controlador.calcularTotalOrden(ordenACalcular);
 
-            
 
     }
     public void generarOrdenServicio(Scanner scanner){

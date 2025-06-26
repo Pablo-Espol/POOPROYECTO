@@ -217,15 +217,19 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
 //metodos para generar Orden de Servicio
     // metodo para obtener el precio del servicio ingresado en base al codigo
 
-    public double indexacionDePrecio(String codig){
-        
-         for (Servicio cadaServicio : listService) {
-            if (cadaServicio.getCodigo() == codig) {
-                return cadaServicio.getPrecio();
-            }
-        }return 0;
-    }
+  
 
+    //metodo para indexar servicio
+    // hay que arreglar
+    public Servicio servicioPorCodigo(String codig){
+            for (Servicio cadaServicio : listService) {
+                if (cadaServicio.getCodigo().trim().equalsIgnoreCase(codig.trim())) {
+            return cadaServicio;  
+        }
+    }
+    return null;
+    }
 }
+
 
     
