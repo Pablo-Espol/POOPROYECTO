@@ -77,7 +77,7 @@ public class ControlTecno {
         listService.add(new Servicio("005", "Cambio de neumaticos", 60.0));     
         listService.add(new Servicio("006", "Cambio de aceite", 30.0));
 
-        //Creando primero en detalles servicios para asignar los servicios a las ordenes de servicio ya que pide minimo 2
+        //Creando primero en detalles servicios para asignar los servicios a las ordenes de servicio ya que pide minimo 2 y 2 x tecnico
        ArrayList<DetalleServicio> listDetalle1= new ArrayList<>();
        listDetalle1.add(new DetalleServicio(2, listService.get(0), listService.get(0).getPrecio()*2)); // 2 * 90.0
        listDetalle1.add(new DetalleServicio(1, listService.get(1), listService.get(1).getPrecio())); // 1 * 80.0
