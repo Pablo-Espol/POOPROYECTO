@@ -12,6 +12,7 @@ public class DetalleServicio {
         this.subtotal = subtotal;
     }
 
+    
 
     public int getCantidad() {
         return cantidad;

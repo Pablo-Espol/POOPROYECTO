@@ -1,5 +1,6 @@
 package vistausuario;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import controlador.ControlTecno;
@@ -277,7 +278,14 @@ public class Vista {
     }
 
     //administrar Orden de servicios
-protected void generarOrden(Scanner scanner){
+
+
+
+     
+    //genera la orden
+    protected void generarOrden(Scanner scanner){
+        ArrayList<DetalleServicio> ordenACalcular = new ArrayList<>();
+        
         scanner.nextLine(); //limpia buffer
         System.out.print("Ingrese ID del Cliente:");
         String id= scanner.nextLine();
@@ -288,6 +296,31 @@ protected void generarOrden(Scanner scanner){
         System.out.print("Ingrese Placa de vehiculo: ");
         String placaVehiculo = scanner.nextLine();
 
+        System.out.println("--------LISTA DE SERVICIOS--------");
+        for (Servicio cadaServicio : controlador.getListService()) {
+            System.out.println(cadaServicio);
+        }
+
+        System.out.print("Ingrese el código del servicio: ");
+        String codigo = scanner.nextLine();
+        while (codigo != ("-1")) {
+            
+            System.out.print("Cantidad: ");
+            int cantidad = scanner.nextInt();
+
+            double subtotal = cantidad* controlador.indexacionDePrecio(codigo);
+
+            ordenACalcular.add(new DetalleServicio(cantidad, new Servicio(codigo),subtotal ));
+
+            //evitar bucle infinito
+            System.out.print("Ingrese código del servicio: ");
+            codigo = scanner.nextLine();
+        }
+            //AQUI VA CODIGO QUE COMUNICA CON EL CONTROLADOR
+
+            controlador.calcularTotalOrden(ordenACalcular);
+
+            
 
     }
     public void generarOrdenServicio(Scanner scanner){

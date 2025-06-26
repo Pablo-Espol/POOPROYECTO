@@ -213,6 +213,19 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
     return total;
 
 }
+
+//metodos de generar Servicio
+    // metodo para obtener el precio del servicio ingresado en base al codigo
+
+    public double indexacionDePrecio(String codig){
+        
+         for (Servicio cadaServicio : listService) {
+            if (cadaServicio.getCodigo() == codig) {
+                return cadaServicio.getPrecio();
+            }
+        }return 0;
+    }
+
 }
 
     
