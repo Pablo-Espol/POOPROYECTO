@@ -30,10 +30,9 @@ public class Vista {
     }
     //Metodo para agregar cliente
 
-    //String identificacion,String nombre,String telefono,String direccion,TipoCliente tipoCliente
      public void agregarCliente(Scanner scanner){
               System.out.print("Ingrese la identificacion del cliente: ");
-              scanner.nextLine(); //buffer
+              scanner.nextLine(); //limpiar buffer
               String id = scanner.nextLine();
               System.out.print("Ingrese el nombre del cliente: ");
               String nombre = scanner.nextLine();

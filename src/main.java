@@ -18,7 +18,7 @@ Scanner sc = new Scanner(System.in);
    int opcion=0;
     do {
         vista.mostrarMenu();
-        
+        System.out.print("Seleccione una opción: ");
         opcion = sc.nextInt();
 
       switch (opcion){
