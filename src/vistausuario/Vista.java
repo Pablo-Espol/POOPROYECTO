@@ -1,7 +1,9 @@
 package vistausuario;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Date;
 
 import controlador.ControlTecno;
 import modelo.*;
@@ -290,10 +292,48 @@ public class Vista {
         scanner.nextLine(); //limpia buffer
         System.out.print("Ingrese ID del Cliente:");
         String id= scanner.nextLine();
+
+        Cliente clienteSeleccionado = null;
+        for (Cliente cliente : controlador.getListClient()){
+            if (cliente.getIdentificacion().equals(id)){
+                clienteSeleccionado = cliente;
+                break;
+            }
+        }
+
+        if (clienteSeleccionado == null){
+            System.out.println("Cliente no encontrado. Operacion cancelada.");
+            return;
+        }
+
         System.out.print("Ingrese la fecha del Servicio dd/MM/yyyy: ");
         String fechaServicio= scanner.nextLine();  //hay que convertirlo a Tipo Date con metodos de paquete Date
-        System.out.print("Ingrese el tipo de vehiculo: ");
-        String tipoVehiculo= scanner.nextLine();
+        
+        Date fechaTexto = null;
+        try {
+            fechaTexto = new SimpleDateFormat("dd/MM/yyyy").parse(fechaServicio);
+        } catch (Exception e){
+            System.out.println("Formato de fehca invalido. Use dd/MM/yyyy. Operacion cancelada.");
+            return;
+        }
+
+        TipoVehiculo tipoVehiculo = null;
+        while(tipoVehiculo == null);{
+            System.out.print("Ingrese el tipo de vehiculo: 1.Automovil  2.Motocicleta  3.Bus");
+            int tipoV = scanner.nextInt();
+            scanner.nextLine();
+            switch (tipoV) {
+                case 1 :tipoVehiculo = TipoVehiculo.VEHICULO;
+                break;
+                case 2: tipoVehiculo = TipoVehiculo.MOTOCICLETA;
+                break;
+                case 3: tipoVehiculo = TipoVehiculo.BUS;
+                break;
+                default:
+                    System.out.println("Opcion invalida. Intente nuevamente");
+            }
+        }
+        
         System.out.print("Ingrese Placa de vehiculo: ");
         String placaVehiculo = scanner.nextLine();
 
