@@ -214,7 +214,7 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
 
 }
 
-//metodos de generar Servicio
+//metodos para generar Orden de Servicio
     // metodo para obtener el precio del servicio ingresado en base al codigo
 
     public double indexacionDePrecio(String codig){
