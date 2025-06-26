@@ -246,7 +246,7 @@ public class Vista {
     }
 
     public void administrarServicios(Scanner scanner){
-        int opcion;;
+        int opcion;
 
         do{
             System.out.println("1. Agregar Servicio");
@@ -276,7 +276,42 @@ public class Vista {
         
     }
 
-    
+    //administrar Orden de servicios
+protected void generarOrden(Scanner scanner){
+        scanner.nextLine(); //limpia buffer
+        System.out.print("Ingrese ID del Cliente:");
+        String id= scanner.nextLine();
+        System.out.print("Ingrese la fecha del Servicio dd/MM/yyyy: ");
+        String fechaServicio= scanner.nextLine();  //hay que convertirlo a Tipo Date con metodos de paquete Date
+        System.out.print("Ingrese el tipo de vehiculo: ");
+        String tipoVehiculo= scanner.nextLine();
+        System.out.print("Ingrese Placa de vehiculo: ");
+        String placaVehiculo = scanner.nextLine();
+
+
+    }
+    public void generarOrdenServicio(Scanner scanner){
+        int opcion;
+        do {    
+            System.out.println("1. Generar Orden");
+            System.out.println("2. Regresar al menu principal");
+            System.out.print("Ingrese una opción: ");
+
+            opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1:
+                    generarOrden(scanner);
+                    break;
+            
+                case 2:
+                    System.out.println("Volviendo al menu principal");
+                    break;
+            }
+            
+        } while (opcion !=2);
+
+    }
     
 
     

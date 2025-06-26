@@ -34,7 +34,10 @@ Scanner sc = new Scanner(System.in);
         break;
         case 4: 
         vista.administrarServicios(sc);
-        
+        break;
+        case 5:
+        vista.generarOrdenServicio(sc);
+        break;
       }
 
     } while (opcion != 10);
