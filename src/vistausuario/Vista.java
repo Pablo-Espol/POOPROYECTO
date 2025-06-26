@@ -112,6 +112,7 @@ public class Vista {
         String telefono = scanner.nextLine();
         System.out.println("Ingrese la dirección: ");
         String direccion = scanner.nextLine();
+         
 
         Proveedor proveedor =controlador.agregarProveedor(id,nombre,telefono,direccion);
 
@@ -159,12 +160,14 @@ public class Vista {
         scanner.nextLine();
         System.out.println("Ingrese la identificacion del tecnico");
         String id= scanner.nextLine();
-        System.out.println("Ingres el nombre de Tecnico");
+        System.out.println("Ingrese el nombre de Tecnico");
         String nombre = scanner.nextLine();
         System.out.println("Ingrese el telefono del tecnico");
         String telefono= scanner.nextLine();
+        System.out.println("Ingrese la especialidad del tecnico");
+        String especialidad = scanner.nextLine();
 
-        Tecnico tecnico = controlador.agregartTecnico(id, nombre, telefono);
+        Tecnico tecnico = controlador.agregartTecnico(id, nombre, telefono,especialidad);
         
         if (tecnico == null){
             System.out.println("El tecnico fue agregado exitosamente");
@@ -175,6 +178,7 @@ public class Vista {
         System.out.println(controlador.getListTecni());
     
     }
+
      public void administrarTecnico(Scanner scanner){
         int opcion=0;
 

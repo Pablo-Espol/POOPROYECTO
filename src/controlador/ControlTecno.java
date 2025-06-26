@@ -116,13 +116,13 @@ public class ControlTecno {
     }
 
     //Metodos para administrar tecnicos
-    public Tecnico agregartTecnico(String identificacion,String nombre, String telefono){
+    public Tecnico agregartTecnico(String identificacion,String nombre, String telefono,String especialidad){
         for (Tecnico tecnico:listTecni){
             if (tecnico.getIdentificacion().equals(identificacion)){
                 return tecnico; // retorna esto y sale el metodo
             }
         }
-        listTecni.add(new Tecnico(identificacion, nombre, telefono));
+        listTecni.add(new Tecnico(identificacion, nombre, telefono,especialidad));
         return null;
     }
 
