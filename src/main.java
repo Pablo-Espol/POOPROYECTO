@@ -24,13 +24,13 @@ Scanner sc = new Scanner(System.in);
       switch (opcion){
        
         case 1:
-        vista.agregarCliente(sc);
+        vista.administrarClientes(sc);
         break;
         case 2:
-        vista.agregarProveedor(sc);
+        vista.administrarProveeddores(sc);
         break;
         case 3:
-        vista.agregarTecnico(sc);
+        vista.administrarTecnico(sc);
         break;
         case 4: 
         vista.administrarServicios(sc);

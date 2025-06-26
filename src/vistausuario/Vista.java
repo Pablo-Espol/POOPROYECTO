@@ -72,6 +72,33 @@ public class Vista {
             System.out.println(controlador.getListClient());
     }
 
+    public void administrarClientes(Scanner scanner){
+        int opcion=0;
+
+        do{
+            System.out.println("1. Agregar Cliente");
+            System.out.println("2. Regresar al menu principal");
+            System.out.print("Seleccione una opcion: ");
+
+            opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1:
+                    agregarCliente(scanner);
+                    break;
+                case 2:
+                    System.out.println("Saliendo del menu de clientes");
+                    break;
+                default:
+                    System.out.println("Opcion no valida, intente nuevamente.");
+            }
+            
+        }while (opcion != 2);
+        
+           
+
+    }
+
     //Metodo para Adminnistar proveedor
 
     //Agregar Proveedor
@@ -97,6 +124,35 @@ public class Vista {
         System.out.println(controlador.getListSuplier());
     }
 
+     public void administrarProveeddores(Scanner scanner){
+        int opcion=0;
+
+        do{
+            System.out.println("1. Agregar Proveedor");
+            System.out.println("2. Regresar al menu principal");
+            System.out.print("Seleccione una opcion: ");
+
+            opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1:
+                    agregarProveedor(scanner);
+                    break;
+                case 2:
+                    System.out.println("Regresando al menu principal");
+                    break;
+                default:
+                    System.out.println("Opcion no valida, intente nuevamente.");
+            }
+            
+        }while (opcion != 2);
+        
+           
+
+    }
+
+
+
     //Metodo para administrar tecnicos
     public void agregarTecnico(Scanner scanner){
         System.out.println("Agregar Tecnico");
@@ -119,6 +175,35 @@ public class Vista {
         System.out.println(controlador.getListTecni());
     
     }
+     public void administrarTecnico(Scanner scanner){
+        int opcion=0;
+
+        do{
+            System.out.println("1. Agregar Tecnico");
+            System.out.println("2. Regresar al menu principal");
+            System.out.print("Seleccione una opcion: ");
+
+            opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1:
+                    agregarTecnico(scanner);
+                    break;
+                case 2:
+                    System.out.println("Regresando al menu principal");
+                    break;
+                default:
+                    System.out.println("Opcion no valida, intente nuevamente.");
+            }
+            
+        }while (opcion != 2);
+        
+           
+
+    }
+
+
+    //Administrar servicios
 
     public void agregarServicio(Scanner scanner){
         System.out.println("Agregar Servicio ");
@@ -163,11 +248,11 @@ public class Vista {
         do{
             System.out.println("1. Agregar Servicio");
             System.out.println("2. Editar Servicio");
-            System.out.println("3. Salir");
+            System.out.println("3. Regresar al menu principal");
             System.out.println("Seleccione una opcion:");
 
             opcion= scanner.nextInt();
-             // Limpiar el buffer
+             
             switch (opcion) {
                 case 1:
                 agregarServicio(scanner);
