@@ -215,12 +215,9 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
 }
 
 //metodos para generar Orden de Servicio
-    // metodo para obtener el precio del servicio ingresado en base al codigo
-
   
 
     //metodo para indexar servicio
-    // hay que arreglar
 
     public Servicio servicioPorCodigo(String codig){
             for (Servicio cadaServicio : listService) {
@@ -270,6 +267,8 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
         return tecnicosDisponibles.get(random.nextInt(tecnicosDisponibles.size()));
     }
 
+    
+    //metodo para agregar la orden de Servicio al sistema
     public OrdenServicio listaOrdenEnSistema(Cliente cliente, Tecnico tecnico, Date fecha, String codigo, TipoVehiculo tipoVehiculo, ArrayList<DetalleServicio> detalles) {
         OrdenServicio nuevaOrden = new OrdenServicio(cliente, tecnico, fecha, codigo, calcularTotalOrden(detalles), tipoVehiculo, detalles);
         listOrden.add(nuevaOrden);
