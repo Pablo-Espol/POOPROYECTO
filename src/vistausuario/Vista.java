@@ -309,9 +309,11 @@ public class Vista {
         String fechaServicio= scanner.nextLine();  //hay que convertirlo a Tipo Date con metodos de paquete Date
        
         SimpleDateFormat  fechaTexto = null;
+
+        Date fechaDate;
         try {
              fechaTexto = new SimpleDateFormat("dd/MM/yyyy");
-             Date fechaDate = fechaTexto.parse(fechaServicio);
+             fechaDate = fechaTexto.parse(fechaServicio);
             
         } catch (Exception e){
             System.out.println("Formato de fehca invalido. Use dd/MM/yyyy. Operacion cancelada.");
@@ -377,10 +379,12 @@ public class Vista {
             System.out.println("Total a pagar:");
             System.out.println(controlador.calcularTotalOrden(ordenACalcular));
 
-            
+            //Tecnico
+
+            Tecnico tecnicoAletorio= controlador.seleccionarTecnicoAleatorio();
 
             //Guardando datos en sistema
-            controlador.listaOrdenEnSistema(clienteSeleccionado,null,null,null,null,null);
+            controlador.listaOrdenEnSistema(clienteSeleccionado,tecnicoAletorio,fechaDate,codigoString,tipoVehiculo,ordenACalcular);
 
 
 
