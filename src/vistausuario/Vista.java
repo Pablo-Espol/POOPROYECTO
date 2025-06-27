@@ -459,7 +459,43 @@ public class Vista {
     for (Insumo insumo : controlador.getListInsumosFaltantes()) {
         System.out.println( "Descripcion: "  + insumo.getDescripcion() + "--------- Fecha: " + insumo.getFechaRegistro());
     }
+
+    //Metodo generar facturas de empresas
+
+    public void generarFacturasEmpresas(Scanner scanner){
+
+        System.out.println("Ingrese el codigo de la Empresa (ID): ");
+        
+        String codigoEmpresa = scanner.nextLine();
+
+        boolean verificarCliente = controlador.verificarCliente(codigoEmpresa);  //Verifica que sea Empresarial
+        
+        if (verificarCliente) {
+            
+        }
+    }
+
+
+    
+
+
+    // Metodo reporte de atenciones por tecnico
+    
+    public void reporteAtencionesporTecnico(Scanner scanner){
+        System.out.println("Ingrese el año que desea consultar: ");
+        int anio = scanner.nextInt();
+        System.out.println("Ingrese el mes que desea consultar (ingrese un número del 1 - 12): ");
+        int mess = scanner.nextInt();
+        
+        
+
+        
+
+
+
+    }
 }
+
 
 
         
@@ -467,4 +503,4 @@ public class Vista {
     
 
     
-}
+

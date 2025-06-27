@@ -40,6 +40,13 @@ Scanner sc = new Scanner(System.in);
         case 6: 
         vista.registrarInsumosFaltantes(sc);
         break;
+        case 7:
+        break;
+        case 8: 
+        break;
+        case 9:
+        break;
+
       }
 
     } while (opcion != 10);

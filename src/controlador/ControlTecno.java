@@ -267,6 +267,27 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
         return nuevoInsumo;
 
     }
+
+    //Metodos para generar factura
+
+    public boolean verificarCliente(String identificacion){
+        for (OrdenServicio cadaOrden : listOrden) {
+            if (cadaOrden.getCliente().getIdentificacion().equals(identificacion.trim())) {
+                return true;
+            }
+        }
+        return false; //si no encuentra la identificacion del cliente
+    }
+
+
+
+
+
+    //METODO REPORTE DE INGRESOS POR SERVICIO
+    public void reporteIngresosporServicio(){}
+
+    
+    
 }
 
 
