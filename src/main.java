@@ -43,8 +43,10 @@ Scanner sc = new Scanner(System.in);
         case 7:
         break;
         case 8: 
+        vista.reporteIngresosPorServicio(sc);
         break;
         case 9:
+          vista.reporteAtencionesporTecnico(sc);
         break;
 
       }

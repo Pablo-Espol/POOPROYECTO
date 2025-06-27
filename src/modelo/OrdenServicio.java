@@ -1,12 +1,12 @@
 package modelo;
-
+import java.time.LocalDate;
 import java.util.*;
 
 
 public class OrdenServicio {
     private Cliente cliente;
     private Tecnico tecnico;
-    private Date fechaServicio;
+    private LocalDate fechaServicio;
     private String placaVehiculo;
     private double totalOrden;
     private TipoVehiculo tipoVehiculo;
@@ -16,7 +16,7 @@ public class OrdenServicio {
     public OrdenServicio(){}
 
     //constructor ordenes
-    public OrdenServicio(Cliente cliente, Date fechaServicio, TipoVehiculo tipoVehiculo, String placaVehiculo){
+    public OrdenServicio(Cliente cliente, LocalDate fechaServicio, TipoVehiculo tipoVehiculo, String placaVehiculo){
         this.cliente = cliente;
         this .tipoVehiculo = tipoVehiculo;
         this.placaVehiculo = placaVehiculo;
@@ -24,7 +24,7 @@ public class OrdenServicio {
     }
     //Constructor para generar facturas (clientes empresariales)
 
-    public OrdenServicio(Cliente cliente, Tecnico tecnico, Date fechaServicio, String placaVehiculo, double totalOrden,
+    public OrdenServicio(Cliente cliente, Tecnico tecnico, LocalDate fechaServicio, String placaVehiculo, double totalOrden,
     TipoVehiculo tipoVehiculo, ArrayList<DetalleServicio> servicios) {
         this.cliente = cliente;
         this.tecnico = tecnico;
@@ -51,11 +51,11 @@ public class OrdenServicio {
         this.tecnico = tecnico;
     }
 
-    public Date getFechaServicio() {
+    public LocalDate getFechaServicio() {
         return this.fechaServicio;
     }
 
-    public void setFechaServicio(Date fechaServicio) {
+    public void setFechaServicio(LocalDate fechaServicio) {
         this.fechaServicio = fechaServicio;
     }
 

@@ -1,5 +1,6 @@
 
 package modelo;
+import java.time.LocalDate;
 import java.util.*;
 /**
  *
@@ -8,14 +9,14 @@ import java.util.*;
 public class Insumo {
     
     private String descripcion;
-    private Date fechaRegistro;
+    private LocalDate fechaRegistro;
 
 
     public Insumo() {
     }
 
 
-    public Insumo(String descripcion, Date fechaRegistro) {
+    public Insumo(String descripcion, LocalDate fechaRegistro) {
         this.descripcion = descripcion;
         this.fechaRegistro = fechaRegistro;
     }
@@ -28,11 +29,11 @@ public class Insumo {
         this.descripcion = descripcion;
     }
 
-    public Date getFechaRegistro() {
+    public LocalDate getFechaRegistro() {
         return this.fechaRegistro;
     }
 
-    public void setFechaRegistro(Date fechaRegistro) {
+    public void setFechaRegistro(LocalDate fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 

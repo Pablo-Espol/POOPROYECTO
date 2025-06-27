@@ -1,14 +1,20 @@
 package vistausuario;
 
-import java.text.SimpleDateFormat;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Map;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Date;
 import controlador.ControlTecno;
 import modelo.*;
 
 
 public class Vista {
+
+    ArrayList<DetalleServicio> ordenACalcular;
 
     ControlTecno controlador;
     private ArrayList<Insumo> listInsumosFaltantes = new ArrayList<>();
@@ -285,9 +291,9 @@ public class Vista {
 
 
      
-    //genera la orden
+    //Genera la orden
     protected void generarOrden(Scanner scanner){
-        ArrayList<DetalleServicio> ordenACalcular = new ArrayList<>();
+        ordenACalcular = new ArrayList<>();
         
         scanner.nextLine(); //limpia buffer
         System.out.print("Ingrese ID del Cliente:");
@@ -307,14 +313,12 @@ public class Vista {
         }
 
         System.out.print("Ingrese la fecha del Servicio dd/MM/yyyy: ");
-        String fechaServicio= scanner.nextLine();  //hay que convertirlo a Tipo Date con metodos de paquete Date
+        String fechaServicio= scanner.nextLine();  //fecha en formato texto
        
-        SimpleDateFormat  fechaTexto = null;
-
-        Date fechaDate;
+        LocalDate fechaDate;
         try {
-             fechaTexto = new SimpleDateFormat("dd/MM/yyyy");
-             fechaDate = fechaTexto.parse(fechaServicio);
+            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            fechaDate = LocalDate.parse(fechaServicio.trim(),formato);
             
         } catch (Exception e){
             System.out.println("Formato de fehca invalido. Use dd/MM/yyyy. Operacion cancelada.");
@@ -354,11 +358,11 @@ public class Vista {
 
         String codigoString = scanner.nextLine();
 
-    
+        int cantidad;
         while (!codigoString.equals("-1")) {
 
             System.out.print("Cantidad: ");
-            int cantidad = scanner.nextInt();
+            cantidad = scanner.nextInt();
 
             Servicio servicio = controlador.servicioPorCodigo(codigoString);
             if (servicio == null) {
@@ -369,7 +373,7 @@ public class Vista {
 
             double subtotal = cantidad* servicio.getPrecio();
 
-            ordenACalcular.add(new DetalleServicio(cantidad,servicio,subtotal ));
+            ordenACalcular.add(new DetalleServicio(cantidad,servicio,subtotal));
 
             //evitar bucle infinito
             System.out.print("Ingrese código del servicio: ");
@@ -459,18 +463,29 @@ public class Vista {
     for (Insumo insumo : controlador.getListInsumosFaltantes()) {
         System.out.println( "Descripcion: "  + insumo.getDescripcion() + "--------- Fecha: " + insumo.getFechaRegistro());
     }
+    }
 
     //Metodo generar facturas de empresas
 
     public void generarFacturasEmpresas(Scanner scanner){
 
-        System.out.println("Ingrese el codigo de la Empresa (ID): ");
+        System.out.print("Ingrese el codigo de la Empresa (ID): ");
         
         String codigoEmpresa = scanner.nextLine();
 
-        boolean verificarCliente = controlador.verificarCliente(codigoEmpresa);  //Verifica que sea Empresarial
+        OrdenServicio clienteOrdenPorID = controlador.clientePorId(codigoEmpresa);  //retorna el Cliente por el ID
         
-        if (verificarCliente) {
+        if (clienteOrdenPorID.getCliente().getTipoCliente().equals(TipoCliente.EMPRESARIAL)) {
+            System.out.print("Ingrese el año:");
+            String ano= scanner.nextLine();
+            System.out.println("Ingrese el mes: ");
+            
+            String mes = scanner.nextLine();
+
+            System.out.println("Empresa: " + clienteOrdenPorID.getCliente().getNombre());
+            System.out.println("Perido de facturación: " + mes + "-"+ ano );
+            System.out.println("Detalle de servicios:");
+            System.out.println("#Placa      Fecha       Tipo        Servicio        Cantidad        Total");
             
         }
     }
@@ -486,6 +501,37 @@ public class Vista {
         int anio = scanner.nextInt();
         System.out.println("Ingrese el mes que desea consultar (ingrese un número del 1 - 12): ");
         int mess = scanner.nextInt();
+
+        Map<String, Double> totalPorTecnico = new HashMap<>();
+        
+        for (OrdenServicio orden : controlador.getListOrden()){
+            
+            LocalDate fecha = orden.getFechaServicio();
+            int ordenAnio = fecha.getYear();
+            int ordenMes = fecha.getMonthValue();
+
+            if (ordenAnio == anio && ordenMes == mess){
+                String tecnicoNombre = orden.getTecnico().getNombre();
+                double ordenTotal = orden.getTotalOrden();
+
+                totalPorTecnico.put(tecnicoNombre, totalPorTecnico.getOrDefault(tecnicoNombre,0.0)+ordenTotal);
+            }
+        System.out.println("/n Reporte de Atenciones por Tecnico ");
+        System.out.printf("%-25s %10s\n", "Tecnico", "Total");
+
+        for(Map.Entry<String,Double> entry : totalPorTecnico.entrySet()){
+            System.out.printf("%-25s $%9.2f\n", entry.getKey(),entry.getValue());
+
+        }
+        if (totalPorTecnico.isEmpty()){
+            System.out.println("No se encontraron ordenes del periodo ingresado.");
+        }
+
+
+
+        }
+        
+        
         
         
 
@@ -494,6 +540,29 @@ public class Vista {
 
 
     }
+
+    public void reporteIngresosPorServicio(Scanner scanner){
+        System.out.println("Ingrese el año del servicio a consultar: ");
+        int año= scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Ingrese el mes para el reporte 1--12: ");
+        int mes= scanner.nextInt();
+        scanner.nextLine();
+
+        controlador.freporteIngresosxServicio(año,mes);
+
+
+        
+
+
+
+
+    }
+
+
+
+
+
 }
 
 

@@ -1,5 +1,6 @@
 package controlador;
 
+import java.time.LocalDate;
 import java.util.*;
 import modelo.*;
 
@@ -100,11 +101,11 @@ public class ControlTecno {
        listDetalles4.add(new DetalleServicio(3, listService.get(1), listService.get(1).getPrecio() * 3));//3*80
        listDetalles4.add(new DetalleServicio(1, listService.get(2), listService.get(2).getPrecio()));//1*80
         
-       //Inicializa con las ordenes de servicio
-       listOrden.add(new OrdenServicio(listClient.get(0), listTecni.get(0), new Date(), "ABB785", calcularTotalOrden(listDetalles4) ,TipoVehiculo.BUS,listDetalle1));
-       listOrden.add(new OrdenServicio(listClient.get(1), listTecni.get(0), new Date(), "ABB786", calcularTotalOrden(listDetalle3) ,TipoVehiculo.MOTOCICLETA,listDetalle3));
-       listOrden.add(new OrdenServicio(listClient.get(2), listTecni.get(1), new Date(), "ABB787", calcularTotalOrden(listDetalle2) ,TipoVehiculo.VEHICULO,listDetalle2));
-       listOrden.add(new OrdenServicio(listClient.get(3), listTecni.get(1), new Date(), "ABB788", calcularTotalOrden(listDetalles4) ,TipoVehiculo.VEHICULO,listDetalles4));
+       //Inicializa con las ordenes de servicio -- yyy,mmm,ddd
+       listOrden.add(new OrdenServicio(listClient.get(0), listTecni.get(0), LocalDate.of(2025,5,10), "ABB785", calcularTotalOrden(listDetalles4) ,TipoVehiculo.BUS,listDetalle1));
+       listOrden.add(new OrdenServicio(listClient.get(1), listTecni.get(0), LocalDate.of(2025,4,25), "ABB786", calcularTotalOrden(listDetalle3) ,TipoVehiculo.MOTOCICLETA,listDetalle3));
+       listOrden.add(new OrdenServicio(listClient.get(2), listTecni.get(1), LocalDate.of(2025,1,1), "ABB787", calcularTotalOrden(listDetalle2) ,TipoVehiculo.VEHICULO,listDetalle2));
+       listOrden.add(new OrdenServicio(listClient.get(3), listTecni.get(1), LocalDate.of(2024,12,25), "ABB788", calcularTotalOrden(listDetalles4) ,TipoVehiculo.VEHICULO,listDetalles4));
 
     }
 
@@ -150,6 +151,25 @@ public class ControlTecno {
         listTecni.add(new Tecnico(identificacion, nombre, telefono,especialidad));
         return null;
     }
+
+    public Tecnico eliminarTecnico(String identificacion){
+        for (Tecnico tecnico: listTecni){
+            if (tecnico.getIdentificacion().equals(identificacion)){
+                System.out.println(tecnico);
+                System.out.println("Estas seguro que deseas eliminar el tecnico");
+
+                String opcion ="SI";
+                
+
+            }
+        }
+
+
+        
+    }
+
+
+
 
     //Metodos para administrar servicios
     //Agregar
@@ -248,7 +268,7 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
 
 
     //metodo para agregar la orden de Servicio al sistema
-    public OrdenServicio listaOrdenEnSistema(Cliente cliente, Tecnico tecnico, Date fecha, TipoVehiculo tipoVehiculo,String placaVehiculo, ArrayList<DetalleServicio> detalles) {
+    public OrdenServicio listaOrdenEnSistema(Cliente cliente, Tecnico tecnico, LocalDate fecha, TipoVehiculo tipoVehiculo,String placaVehiculo, ArrayList<DetalleServicio> detalles) {
         OrdenServicio nuevaOrden = new OrdenServicio(cliente, tecnico, fecha, placaVehiculo, calcularTotalOrden(detalles), tipoVehiculo, detalles);
         listOrden.add(nuevaOrden);
         return nuevaOrden;
@@ -257,7 +277,7 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
 
     //METODO REGISTRO DE INSUMOOSS
     public Insumo registroInsumo(String descripcion, Proveedor proveedor){
-        Insumo nuevoInsumo = new Insumo(descripcion, new Date());
+        Insumo nuevoInsumo = new Insumo(descripcion, LocalDate.now());
         listInsumosFaltantes.add(nuevoInsumo);
         System.out.println("Se ha registrado el insumo faltante");
 
@@ -270,25 +290,103 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
 
     //Metodos para generar factura
 
-    public boolean verificarCliente(String identificacion){
-        for (OrdenServicio cadaOrden : listOrden) {
-            if (cadaOrden.getCliente().getIdentificacion().equals(identificacion.trim())) {
-                return true;
+    public OrdenServicio clientePorId(String identificacion){
+        for (OrdenServicio clienteOrdenPorID : listOrden) {
+            if (clienteOrdenPorID.getCliente().getIdentificacion().equals(identificacion.trim())) {
+                return clienteOrdenPorID;
             }
         }
-        return false; //si no encuentra la identificacion del cliente
+        return null; //si no encuentra la identificacion del cliente
     }
 
 
 
+    public void panelDeFacturas(OrdenServicio clientePorOrdenServicio){
+        for (OrdenServicio cadaFactura : listOrden) {
+            if (cadaFactura.getCliente().getIdentificacion().equals(clientePorOrdenServicio.getCliente().getIdentificacion())) {
+                String placa= cadaFactura.getPlacaVehiculo();
+
+                LocalDate fechaCompleta= cadaFactura.getFechaServicio();
+                int mes= fechaCompleta.getMonthValue();
+                int ano = fechaCompleta.getYear();
+
+                TipoVehiculo tipoVehiculo = cadaFactura.getTipoVehiculo();
+                
+
+                for (OrdenServicio cadaOrdenServicio : listOrden) {
+                    if (cadaOrdenServicio.getCliente().getIdentificacion().equals(cadaFactura.getCliente().getIdentificacion())){
+                    DetalleServicio cantidad = cadaOrdenServicio.
+
+                    }
+                }
+
+                double total = cadaFactura.getTotalOrden();
+            
+            }
+        }
+    }
+
 
 
     //METODO REPORTE DE INGRESOS POR SERVICIO
-    public void reporteIngresosporServicio(){}
+    public void freporteIngresosxServicio(int año, int mes){
+        ArrayList<Servicio> servicios= getListService();
+        double [] totalServicio = new double[servicios.size()];
+
+        for (OrdenServicio ordenes: listOrden){
+            LocalDate fecha= ordenes.getFechaServicio();
+
+            if (fecha.getYear()==año && fecha.getMonthValue()==mes){
+                for (DetalleServicio detalles: ordenes.getServicios()){
+                    Servicio servicio = detalles.getServicio();
+
+                    for (int i=0 ;i< servicios.size();i++){
+                        if(servicios.get(i).getCodigo().equals(servicio.getCodigo())){
+                            totalServicio[i]+=detalles.getSubtotal();
+                            break;
+                            
+                        }
+
+                        
+                    }
+                }
+
+
+
+                
+            }
+            
+
+            
+                
+            }
+            System.out.println("\n REPORTE DE INGRESOS PARA "+ mes + " -- "+ año );
+            System.out.println("SERVICIO\t\t\tTOTAL");
+
+            for (int i=0; i< servicios.size();i++){
+                if (totalServicio[i]>0){
+                    System.out.printf("%-30s\t%.2f\n", servicios.get(i).getNombre(), totalServicio[i]);
+                }
+
+            }
+
+
+
+        }
+
+        
+
+
+
+
+
+
+
+}
 
     
     
-}
+
 
 
 

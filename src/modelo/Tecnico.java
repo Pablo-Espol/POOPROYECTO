@@ -11,6 +11,12 @@ package modelo;
 public class Tecnico extends Personal {
     private String especialidad;
 
+    public Tecnico (String identificacion){
+        super(identificacion);
+    }
+
+
+
     
 
     public Tecnico(String identificacion, String nombre, String telefono) {
