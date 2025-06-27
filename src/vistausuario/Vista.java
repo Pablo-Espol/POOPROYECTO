@@ -307,7 +307,7 @@ public class Vista {
 
         System.out.print("Ingrese la fecha del Servicio dd/MM/yyyy: ");
         String fechaServicio= scanner.nextLine();  //hay que convertirlo a Tipo Date con metodos de paquete Date
- /**      
+       
         SimpleDateFormat  fechaTexto = null;
         try {
              fechaTexto = new SimpleDateFormat("dd/MM/yyyy");
@@ -318,9 +318,13 @@ public class Vista {
             return;
         }
 
-    */      TipoVehiculo tipoVehiculo = null;
+         TipoVehiculo tipoVehiculo = null;
         while(tipoVehiculo == null){
-            System.out.print("Ingrese el tipo de vehiculo: 1.Automovil  2.Motocicleta  3.Bus");
+            System.out.println("Ingrese el tipo de vehiculo:"+ 
+            "\n1.Automovil"+  
+            "\n2.Motocicleta " +
+            "\n3.Bus");
+            System.out.print("Ingrese el tipo:");
             int tipoV = scanner.nextInt();
             scanner.nextLine();
             switch (tipoV) {
@@ -344,31 +348,30 @@ public class Vista {
     }
 
         System.out.print("Ingrese el código del servicio: ");
-        int codigo = scanner.nextInt();
 
-        
+        String codigoString = scanner.nextLine();
 
-        while (codigo != (-1)) {
-            String codigoString = String.valueOf(codigo);
+    
+        while (!codigoString.equals("-1")) {
 
             System.out.print("Cantidad: ");
             int cantidad = scanner.nextInt();
 
-double servicio = controlador.servicioPorCodigo(codigoString);
-if (servicio == 0.0) {
-    System.out.println("Servicio no encontrado. Verifique el código ingresado.");
-    return;
-}
-double precio = servicio;
+            Servicio servicio = controlador.servicioPorCodigo(codigoString);
+            if (servicio == null) {
+                    System.out.println("Servicio no encontrado. Verifique el código ingresado.");
+                    return;
+            }
 
-            double subtotal = cantidad* precio;
 
-            ordenACalcular.add(new DetalleServicio(cantidad,subtotal ));
+            double subtotal = cantidad* servicio.getPrecio();
+
+            ordenACalcular.add(new DetalleServicio(cantidad,controlador.servicioPorCodigo(codigoString),subtotal ));
 
             //evitar bucle infinito
             System.out.print("Ingrese código del servicio: ");
-            codigo = scanner.nextInt();
-            //scanner.nextLine(); //Limpia buffer
+            scanner.nextLine(); // limpia buffer
+            codigoString = scanner.nextLine();
         }
             //AQUI VA CODIGO QUE COMUNICA CON EL CONTROLADOR
             System.out.println("Total a pagar:");
