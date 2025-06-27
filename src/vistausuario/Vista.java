@@ -385,7 +385,7 @@ public class Vista {
 
             //Guardando datos en sistema
             controlador.listaOrdenEnSistema(clienteSeleccionado,tecnicoAletorio,fechaDate,tipoVehiculo,placaVehiculo,ordenACalcular);
-
+            System.out.println("Se agregó la orden al sistema exitosamente!");
 
 
     }
