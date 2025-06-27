@@ -223,23 +223,7 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
     return null;
     }
 
-    // Selecciona un técnico que tenga menos de 2 órdenes asignadas y coincida con la identificación
-    public Tecnico seleccionarTecnicoPorIdentificacion(String identificacion) {
-        for (Tecnico tecnico : listTecni) {
-            if (tecnico.getIdentificacion().equals(identificacion)) {
-                int ordenesAsignadas = 0;
-                for (OrdenServicio orden : listOrden) {
-                    if (orden.getTecnico().getIdentificacion().equals(identificacion)) {
-                        ordenesAsignadas++;
-                    }
-                }
-                if (ordenesAsignadas < 2) {
-                    return tecnico;
-                }
-            }
-        }
-        return null;
-    }
+    
 
     // Selecciona un técnico aleatorio que tenga menos de 2 órdenes asignadas
     public Tecnico seleccionarTecnicoAleatorio() {
