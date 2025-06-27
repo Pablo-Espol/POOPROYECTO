@@ -4,7 +4,7 @@ package vistausuario;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
-import java.util.Calendar;
+
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -17,7 +17,7 @@ public class Vista {
     ArrayList<DetalleServicio> ordenACalcular;
 
     ControlTecno controlador;
-    private ArrayList<Insumo> listInsumosFaltantes = new ArrayList<>();
+    
 
     public Vista(ControlTecno controlador){
         this.controlador= controlador;
