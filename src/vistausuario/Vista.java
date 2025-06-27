@@ -217,7 +217,7 @@ public class Vista {
         String nombre= scanner.nextLine();
         System.out.println("Ingrese el precio del servicio");
         double precio = scanner.nextDouble();
-        Servicio servicio= controlador.agregarServicio(nombre, precio);
+        controlador.agregarServicio(nombre, precio);
         System.out.println("El servicio fue agregado exitosamente");
         System.out.println(controlador.getListService());
 
@@ -342,7 +342,7 @@ public class Vista {
         }
         
         System.out.print("Ingrese Placa de vehiculo: ");
-        String placaVehiculo = scanner.nextLine();
+        String placaVehiculo = scanner.nextLine(); // No se donde enviar esto, esta sin usar
 
         System.out.println("--------LISTA DE SERVICIOS--------");
         for (Servicio cadaServicio : controlador.getListService()) {
@@ -384,7 +384,7 @@ public class Vista {
             Tecnico tecnicoAletorio= controlador.seleccionarTecnicoAleatorio();
 
             //Guardando datos en sistema
-            controlador.listaOrdenEnSistema(clienteSeleccionado,tecnicoAletorio,fechaDate,codigoString,tipoVehiculo,ordenACalcular);
+            controlador.listaOrdenEnSistema(clienteSeleccionado,tecnicoAletorio,fechaDate,tipoVehiculo,placaVehiculo,ordenACalcular);
 
 
 

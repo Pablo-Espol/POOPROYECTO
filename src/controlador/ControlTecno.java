@@ -267,10 +267,10 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
         return tecnicosDisponibles.get(random.nextInt(tecnicosDisponibles.size()));
     }
 
-    
+
     //metodo para agregar la orden de Servicio al sistema
-    public OrdenServicio listaOrdenEnSistema(Cliente cliente, Tecnico tecnico, Date fecha, String codigo, TipoVehiculo tipoVehiculo, ArrayList<DetalleServicio> detalles) {
-        OrdenServicio nuevaOrden = new OrdenServicio(cliente, tecnico, fecha, codigo, calcularTotalOrden(detalles), tipoVehiculo, detalles);
+    public OrdenServicio listaOrdenEnSistema(Cliente cliente, Tecnico tecnico, Date fecha, TipoVehiculo tipoVehiculo,String placaVehiculo, ArrayList<DetalleServicio> detalles) {
+        OrdenServicio nuevaOrden = new OrdenServicio(cliente, tecnico, fecha, placaVehiculo, calcularTotalOrden(detalles), tipoVehiculo, detalles);
         listOrden.add(nuevaOrden);
         return nuevaOrden;
     }
