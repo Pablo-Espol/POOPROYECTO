@@ -94,6 +94,13 @@ public class OrdenServicio {
     public void setServicios(ArrayList<DetalleServicio> servicios) {
         this.servicios = servicios;
     }
+
+    @Override
+    public String toString() {
+        return "OrdenServicio [cliente=" + cliente + ", tecnico=" + tecnico + ", fechaServicio=" + fechaServicio
+                + ", placaVehiculo=" + placaVehiculo + ", totalOrden=" + totalOrden + ", tipoVehiculo=" + tipoVehiculo
+                + ", servicios=" + servicios + "]";
+    }
     
     
 
