@@ -398,12 +398,18 @@ public class Vista {
             //Tecnico
 
             Tecnico tecnicoAletorio= controlador.seleccionarTecnicoAleatorio();
-
+            if (tecnicoAletorio == null) {
+                System.out.println("No hay técnicos disponibles. Debe agregar un nuevo técnico.");
+                administrarTecnico(scanner);
+                tecnicoAletorio = controlador.seleccionarTecnicoAleatorio();
+                if (tecnicoAletorio == null) {
+                    System.out.println("No se pudo agregar un técnico. Operación cancelada.");
+                    return;
+                }
+            }
             //Guardando datos en sistema
             controlador.listaOrdenEnSistema(clienteSeleccionado,tecnicoAletorio,fechaDate,tipoVehiculo,placaVehiculo,ordenACalcular);
             System.out.println("Se agregó la orden al sistema exitosamente!");
-            System.out.println(controlador.getListOrden());
-
 
     }
     public void generarOrdenServicio(Scanner scanner){
@@ -478,7 +484,7 @@ public class Vista {
 
     //Metodo generar facturas de empresas
 
-    public void generarFacturasEmpresas(Scanner scanner){
+    protected void generarFacturasEmpresas(Scanner scanner){
 
         System.out.print("Ingrese el codigo de la Empresa (ID): ");
         scanner.nextLine();
@@ -500,6 +506,33 @@ public class Vista {
             controlador.panelDeFacturas(clienteOrdenPorID);
         }
     }
+
+    //Mini Menu
+
+    public void facturasParaEmpresas(Scanner scanner){
+    int opcion;
+        do {    
+            System.out.println("1. Generar Factura");
+            System.out.println("2. Regresar al menu principal");
+            System.out.print("Ingrese una opción: ");
+
+            opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1:
+                    generarFacturasEmpresas(scanner);
+                    break;
+            
+                case 2:
+                    System.out.println("Volviendo al menu principal");
+                    break;
+            }
+            
+        } while (opcion !=2);
+
+    }
+
+    
 
 
     
@@ -560,25 +593,6 @@ public class Vista {
 
         controlador.freporteIngresosxServicio(año,mes);
 
-
-        
-
-
-
-
     }
 
-
-
-
-
 }
-
-
-
-        
-
-    
-
-    
-

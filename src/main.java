@@ -41,7 +41,7 @@ Scanner sc = new Scanner(System.in);
           vista.registrarInsumosFaltantes(sc);
           break;
         case 7:
-        vista.generarFacturasEmpresas(sc);
+          vista.facturasParaEmpresas(sc);
         break;
           case 8: 
           vista.reporteIngresosPorServicio(sc);

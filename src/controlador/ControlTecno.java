@@ -185,7 +185,6 @@ public class ControlTecno {
 
 
     //Metodos para administrar servicios
-    //Agregar
     public Servicio agregarServicio(String nombre, double precio){
         Servicio ultimo = listService.get(listService.size()-1);
         String code= ultimo.getCodigo();
@@ -268,7 +267,7 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
                     ordenesAsignadas++;
                 }
             }
-            if (ordenesAsignadas < 10) {
+            if (ordenesAsignadas <= 2) {
                 tecnicosDisponibles.add(tecnico);
             }
         }
