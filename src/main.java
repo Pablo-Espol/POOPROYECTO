@@ -37,6 +37,9 @@ Scanner sc = new Scanner(System.in);
         case 5:
         vista.generarOrdenServicio(sc);
         break;
+        case 6: 
+        vista.registrarInsumosFaltantes(sc);
+        break;
       }
 
     } while (opcion != 10);

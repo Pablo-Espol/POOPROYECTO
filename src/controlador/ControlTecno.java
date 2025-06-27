@@ -9,6 +9,7 @@ public class ControlTecno {
     private ArrayList<Proveedor> listSuplier;
     private ArrayList<Servicio> listService;
     private ArrayList<OrdenServicio> listOrden;
+    private ArrayList<Insumo> listInsumosFaltantes;
     Scanner sc =new Scanner(System.in);
 
     public ControlTecno() {
@@ -17,6 +18,7 @@ public class ControlTecno {
         listSuplier= new ArrayList<>();
         listService= new ArrayList<>();
         listOrden= new ArrayList<>();    
+        listInsumosFaltantes= new ArrayList<>();
     }
     public ArrayList<Cliente> getListClient() {
         return listClient;
@@ -50,6 +52,13 @@ public class ControlTecno {
     public void setListOrden(ArrayList<OrdenServicio> listOrden) {
         this.listOrden = listOrden;
     }
+    public ArrayList<Insumo> getListInsumosFaltantes() {
+        return listInsumosFaltantes;
+    }
+    public void setListInsumosFaltantes(ArrayList<Insumo> listInsumosFaltantes) {
+        this.listInsumosFaltantes = listInsumosFaltantes;
+    }
+
        //Creación metodo inicializarApp()
 
 
@@ -97,20 +106,6 @@ public class ControlTecno {
        listOrden.add(new OrdenServicio(listClient.get(2), listTecni.get(1), new Date(), "ABB787", calcularTotalOrden(listDetalle2) ,TipoVehiculo.VEHICULO,listDetalle2));
        listOrden.add(new OrdenServicio(listClient.get(3), listTecni.get(1), new Date(), "ABB788", calcularTotalOrden(listDetalles4) ,TipoVehiculo.VEHICULO,listDetalles4));
 
-
-
-       
-
-
-
-        
-
-
-
-
-
-    
-
     }
 
 
@@ -133,13 +128,13 @@ public class ControlTecno {
 
     //Metodos para administrar proveedores 
 
-    public Proveedor agregarProveedor(String identificacion,String nombre,String telefono,String direccion){
+    public Proveedor agregarProveedor(String identificacion,String nombre,String telefono,String descripcion){
         for (Proveedor proveedor: listSuplier){
             if(proveedor.getIdentificacion().equals(identificacion)){    
                 return proveedor;// retorna esto y sale el metodo
             }
         }
-        listSuplier.add(new Proveedor(identificacion,nombre, telefono,direccion));
+        listSuplier.add(new Proveedor(identificacion,nombre, telefono,descripcion));
         return null;//todo bien no necesito enviar algún mensaje
         
         
@@ -273,6 +268,20 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
         OrdenServicio nuevaOrden = new OrdenServicio(cliente, tecnico, fecha, placaVehiculo, calcularTotalOrden(detalles), tipoVehiculo, detalles);
         listOrden.add(nuevaOrden);
         return nuevaOrden;
+    }
+
+
+    //METODO REGISTRO DE INSUMOOSS
+    public Insumo registroInsumo(String descripcion, Proveedor proveedor){
+        Insumo nuevoInsumo = new Insumo(descripcion, new Date());
+        listInsumosFaltantes.add(nuevoInsumo);
+        System.out.println("Se ha registrado el insumo faltante");
+
+
+
+        
+        return nuevoInsumo;
+
     }
 }
 
