@@ -1,5 +1,4 @@
 import java.util.*;
-import modelo.*;
 import vistausuario.*;
 import controlador.*;
 
