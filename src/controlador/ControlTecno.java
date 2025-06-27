@@ -102,7 +102,7 @@ public class ControlTecno {
        listDetalles4.add(new DetalleServicio(1, listService.get(2), listService.get(2).getPrecio()));//1*80
         
        //Inicializa con las ordenes de servicio -- yyy,mmm,ddd
-       listOrden.add(new OrdenServicio(listClient.get(0), listTecni.get(4), LocalDate.of(2025,6,10), "ABB785", calcularTotalOrden(listDetalles4) ,TipoVehiculo.BUS,listDetalle1));
+       listOrden.add(new OrdenServicio(listClient.get(0), listTecni.get(0), LocalDate.of(2025,6,10), "ABB785", calcularTotalOrden(listDetalles4) ,TipoVehiculo.BUS,listDetalle1));
        listOrden.add(new OrdenServicio(listClient.get(1), listTecni.get(1), LocalDate.of(2025,4,25), "ABB786", calcularTotalOrden(listDetalle3) ,TipoVehiculo.MOTOCICLETA,listDetalle3));
        listOrden.add(new OrdenServicio(listClient.get(2), listTecni.get(1), LocalDate.of(2025,3,1), "ABB787", calcularTotalOrden(listDetalle2) ,TipoVehiculo.VEHICULO,listDetalle2));
        listOrden.add(new OrdenServicio(listClient.get(3), listTecni.get(1), LocalDate.of(2024,12,25), "ABB788", calcularTotalOrden(listDetalles4) ,TipoVehiculo.VEHICULO,listDetalles4));
