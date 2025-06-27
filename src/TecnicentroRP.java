@@ -2,7 +2,7 @@ import java.util.*;
 import vistausuario.*;
 import controlador.*;
 
-public class main{
+public class TecnicentroRP {
 public static void main(String[] args) {
 
 

@@ -102,9 +102,9 @@ public class ControlTecno {
        listDetalles4.add(new DetalleServicio(1, listService.get(2), listService.get(2).getPrecio()));//1*80
         
        //Inicializa con las ordenes de servicio -- yyy,mmm,ddd
-       listOrden.add(new OrdenServicio(listClient.get(2), listTecni.get(0), LocalDate.of(2025,5,10), "ABB785", calcularTotalOrden(listDetalles4) ,TipoVehiculo.BUS,listDetalle1));
-       listOrden.add(new OrdenServicio(listClient.get(2), listTecni.get(0), LocalDate.of(2025,5,25), "ABB786", calcularTotalOrden(listDetalle3) ,TipoVehiculo.MOTOCICLETA,listDetalle3));
-       listOrden.add(new OrdenServicio(listClient.get(2), listTecni.get(1), LocalDate.of(2025,5,1), "ABB787", calcularTotalOrden(listDetalle2) ,TipoVehiculo.VEHICULO,listDetalle2));
+       listOrden.add(new OrdenServicio(listClient.get(0), listTecni.get(4), LocalDate.of(2025,6,10), "ABB785", calcularTotalOrden(listDetalles4) ,TipoVehiculo.BUS,listDetalle1));
+       listOrden.add(new OrdenServicio(listClient.get(1), listTecni.get(1), LocalDate.of(2025,4,25), "ABB786", calcularTotalOrden(listDetalle3) ,TipoVehiculo.MOTOCICLETA,listDetalle3));
+       listOrden.add(new OrdenServicio(listClient.get(2), listTecni.get(1), LocalDate.of(2025,3,1), "ABB787", calcularTotalOrden(listDetalle2) ,TipoVehiculo.VEHICULO,listDetalle2));
        listOrden.add(new OrdenServicio(listClient.get(3), listTecni.get(1), LocalDate.of(2024,12,25), "ABB788", calcularTotalOrden(listDetalles4) ,TipoVehiculo.VEHICULO,listDetalles4));
 
     }
@@ -112,7 +112,7 @@ public class ControlTecno {
 
     
     
-
+//METODOS PARA EL FUNCIONAMIENTO DEL PROGRAMA ------ NO TOCAR, SIIII FUNCIONA!!!!!!
 
 
     //Metodos para administrar clientes
@@ -180,10 +180,7 @@ public class ControlTecno {
 
         
     }
-
-
-
-
+   
     //Metodos para administrar servicios
     public Servicio agregarServicio(String nombre, double precio){
         Servicio ultimo = listService.get(listService.size()-1);
@@ -329,14 +326,10 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
                 sumaTotal += esaOrden.getTotalOrden();
             }
         }
-        System.out.println("Total a pagar: " + sumaTotal);
+        System.out.println("Total a pagar: " + (sumaTotal+50));
     }
        
         
-    
-
-
-
     //METODO REPORTE DE INGRESOS POR SERVICIO
     public void freporteIngresosxServicio(int año, int mes){
         ArrayList<Servicio> servicios= getListService();
