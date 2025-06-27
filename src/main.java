@@ -23,28 +23,29 @@ Scanner sc = new Scanner(System.in);
       switch (opcion){
        
         case 1:
-        vista.administrarClientes(sc);
-        break;
+          vista.administrarClientes(sc);
+          break;
         case 2:
-        vista.administrarProveeddores(sc);
-        break;
+          vista.administrarProveeddores(sc);
+          break;
         case 3:
-        vista.administrarTecnico(sc);
-        break;
+          vista.administrarTecnico(sc);
+          break;
         case 4: 
-        vista.administrarServicios(sc);
-        break;
+          vista.administrarServicios(sc);
+          break;
         case 5:
-        vista.generarOrdenServicio(sc);
-        break;
+          vista.generarOrdenServicio(sc);
+          break;
         case 6: 
-        vista.registrarInsumosFaltantes(sc);
-        break;
+          vista.registrarInsumosFaltantes(sc);
+          break;
         case 7:
+        vista.generarFacturasEmpresas(sc);
         break;
-        case 8: 
-        vista.reporteIngresosPorServicio(sc);
-        break;
+          case 8: 
+          vista.reporteIngresosPorServicio(sc);
+          break;
         case 9:
           vista.reporteAtencionesporTecnico(sc);
         break;

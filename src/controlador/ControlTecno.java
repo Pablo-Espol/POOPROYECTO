@@ -102,9 +102,9 @@ public class ControlTecno {
        listDetalles4.add(new DetalleServicio(1, listService.get(2), listService.get(2).getPrecio()));//1*80
         
        //Inicializa con las ordenes de servicio -- yyy,mmm,ddd
-       listOrden.add(new OrdenServicio(listClient.get(0), listTecni.get(0), LocalDate.of(2025,5,10), "ABB785", calcularTotalOrden(listDetalles4) ,TipoVehiculo.BUS,listDetalle1));
-       listOrden.add(new OrdenServicio(listClient.get(1), listTecni.get(0), LocalDate.of(2025,4,25), "ABB786", calcularTotalOrden(listDetalle3) ,TipoVehiculo.MOTOCICLETA,listDetalle3));
-       listOrden.add(new OrdenServicio(listClient.get(2), listTecni.get(1), LocalDate.of(2025,1,1), "ABB787", calcularTotalOrden(listDetalle2) ,TipoVehiculo.VEHICULO,listDetalle2));
+       listOrden.add(new OrdenServicio(listClient.get(2), listTecni.get(0), LocalDate.of(2025,5,10), "ABB785", calcularTotalOrden(listDetalles4) ,TipoVehiculo.BUS,listDetalle1));
+       listOrden.add(new OrdenServicio(listClient.get(2), listTecni.get(0), LocalDate.of(2025,5,25), "ABB786", calcularTotalOrden(listDetalle3) ,TipoVehiculo.MOTOCICLETA,listDetalle3));
+       listOrden.add(new OrdenServicio(listClient.get(2), listTecni.get(1), LocalDate.of(2025,5,1), "ABB787", calcularTotalOrden(listDetalle2) ,TipoVehiculo.VEHICULO,listDetalle2));
        listOrden.add(new OrdenServicio(listClient.get(3), listTecni.get(1), LocalDate.of(2024,12,25), "ABB788", calcularTotalOrden(listDetalles4) ,TipoVehiculo.VEHICULO,listDetalles4));
 
     }
@@ -152,18 +152,31 @@ public class ControlTecno {
         return null;
     }
 
-    public Tecnico eliminarTecnico(String identificacion){
-        for (Tecnico tecnico: listTecni){
+    public boolean eliminarTecnico(String identificacion, Scanner scanner){
+        for (int i=0;i< listTecni.size();i++){
+            Tecnico tecnico = listTecni.get(i);
             if (tecnico.getIdentificacion().equals(identificacion)){
                 System.out.println(tecnico);
-                System.out.println("Estas seguro que deseas eliminar el tecnico");
+                System.out.println("Estas seguro que deseas eliminar el tecnico (SI/NO)");
+                String desicion= scanner.nextLine().toUpperCase();
 
                 String opcion ="SI";
-                
+                if (desicion.equals(opcion)){
+                    listTecni.remove(i);
+                    System.out.println("El tecnico ha sido eliminado correctamente");
+                    return true; //El técnico fue eliminado 
+                } else {
+                    System.out.println("El tecnico no ha sido eliminado");
+                    return false; // El técnico no fue eliminado
+
+
+                }
+
 
             }
         }
-
+        System.out.println("No se encontró un técnico con la identificación proporcionada." );
+        return false; 
 
         
     }
@@ -255,7 +268,7 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
                     ordenesAsignadas++;
                 }
             }
-            if (ordenesAsignadas < 2) {
+            if (ordenesAsignadas < 10) {
                 tecnicosDisponibles.add(tecnico);
             }
         }
@@ -281,15 +294,12 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
         listInsumosFaltantes.add(nuevoInsumo);
         System.out.println("Se ha registrado el insumo faltante");
 
-
-
-        
         return nuevoInsumo;
 
     }
 
     //Metodos para generar factura
-
+    //cliente por ID
     public OrdenServicio clientePorId(String identificacion){
         for (OrdenServicio clienteOrdenPorID : listOrden) {
             if (clienteOrdenPorID.getCliente().getIdentificacion().equals(identificacion.trim())) {
@@ -299,32 +309,32 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
         return null; //si no encuentra la identificacion del cliente
     }
 
+    public void panelDeFacturas(OrdenServicio clientePorOrdenServicio) { //recibe el tipo cliente empresarial
+        double sumaTotal = 0.0;
+        for (OrdenServicio esaOrden : listOrden) {
+            if (esaOrden.getCliente().getIdentificacion().equals(clientePorOrdenServicio.getCliente().getIdentificacion())) {
+                String placa = esaOrden.getPlacaVehiculo();
+                LocalDate fechaCompleta = esaOrden.getFechaServicio();
+                int mes = fechaCompleta.getMonthValue();
+                int dia = fechaCompleta.getDayOfMonth();
+                TipoVehiculo tipoVehiculo = esaOrden.getTipoVehiculo();
 
+                // Para cada detalle de servicio en la orden, imprime nombre y cantidad
+                for (DetalleServicio eseServicio : esaOrden.getServicios()) {
+                    String nombreServicio = eseServicio.getServicio().getNombre();
+                    int cantidad = eseServicio.getCantidad();
+                    double total = esaOrden.getTotalOrden();
 
-    public void panelDeFacturas(OrdenServicio clientePorOrdenServicio){
-        for (OrdenServicio cadaFactura : listOrden) {
-            if (cadaFactura.getCliente().getIdentificacion().equals(clientePorOrdenServicio.getCliente().getIdentificacion())) {
-                String placa= cadaFactura.getPlacaVehiculo();
-
-                LocalDate fechaCompleta= cadaFactura.getFechaServicio();
-                int mes= fechaCompleta.getMonthValue();
-                int ano = fechaCompleta.getYear();
-
-                TipoVehiculo tipoVehiculo = cadaFactura.getTipoVehiculo();
-                
-
-                for (OrdenServicio cadaOrdenServicio : listOrden) {
-                    if (cadaOrdenServicio.getCliente().getIdentificacion().equals(cadaFactura.getCliente().getIdentificacion())){
-                    DetalleServicio cantidad = cadaOrdenServicio.
-
-                    }
+                    System.out.println(placa + "      " + dia + "-" + mes + "     " + tipoVehiculo + "        " + nombreServicio + "      " + cantidad + "        " + total);
                 }
-
-                double total = cadaFactura.getTotalOrden();
-            
+                sumaTotal += esaOrden.getTotalOrden();
             }
         }
+        System.out.println("Total a pagar: " + sumaTotal);
     }
+       
+        
+    
 
 
 

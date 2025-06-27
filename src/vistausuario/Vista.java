@@ -186,13 +186,22 @@ public class Vista {
         System.out.println(controlador.getListTecni());
     
     }
+    public void eliminarTecnico(Scanner scanner) {
+    System.out.println("Eliminar Técnico");
+    scanner.nextLine(); // limpiar buffer
+    System.out.print("Ingrese la identificación del técnico a eliminar: ");
+    String id = scanner.nextLine();
+
+    controlador.eliminarTecnico(id, scanner);
+}
 
      public void administrarTecnico(Scanner scanner){
         int opcion=0;
 
         do{
             System.out.println("1. Agregar Tecnico");
-            System.out.println("2. Regresar al menu principal");
+            System.out.println("2. Eliminar Tecnico");
+            System.out.println("3. Regresar al menu principal");
             System.out.print("Seleccione una opcion: ");
 
             opcion = scanner.nextInt();
@@ -202,13 +211,15 @@ public class Vista {
                     agregarTecnico(scanner);
                     break;
                 case 2:
-                    System.out.println("Regresando al menu principal");
+                    eliminarTecnico(scanner);
                     break;
+                case 3: 
+                    System.out.println("Saliendo del menu de servicios");
                 default:
                     System.out.println("Opcion no valida, intente nuevamente.");
             }
             
-        }while (opcion != 2);
+        }while (opcion != 3);
         
            
 
@@ -470,7 +481,7 @@ public class Vista {
     public void generarFacturasEmpresas(Scanner scanner){
 
         System.out.print("Ingrese el codigo de la Empresa (ID): ");
-        
+        scanner.nextLine();
         String codigoEmpresa = scanner.nextLine();
 
         OrdenServicio clienteOrdenPorID = controlador.clientePorId(codigoEmpresa);  //retorna el Cliente por el ID
@@ -486,14 +497,12 @@ public class Vista {
             System.out.println("Perido de facturación: " + mes + "-"+ ano );
             System.out.println("Detalle de servicios:");
             System.out.println("#Placa      Fecha       Tipo        Servicio        Cantidad        Total");
-            
+            controlador.panelDeFacturas(clienteOrdenPorID);
         }
     }
 
 
     
-
-
     // Metodo reporte de atenciones por tecnico
     
     public void reporteAtencionesporTecnico(Scanner scanner){
