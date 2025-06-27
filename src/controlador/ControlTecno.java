@@ -230,17 +230,47 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
     }
     return null;
     }
-    /**
-    public double servicioPorCodigo(String codig){
-        for (int i = 0; i < listService.size(); i++) {
-           Servicio cadaServicio = listService.get(i);
-            if (cadaServicio.getCodigo().equals(codig.trim())) {
-                return cadaServicio.getPrecio(); // Retorna el precio del servicio encontrado
+
+    // Selecciona un técnico que tenga menos de 2 órdenes asignadas y coincida con la identificación
+    public Tecnico seleccionarTecnicoPorIdentificacion(String identificacion) {
+        for (Tecnico tecnico : listTecni) {
+            if (tecnico.getIdentificacion().equals(identificacion)) {
+                int ordenesAsignadas = 0;
+                for (OrdenServicio orden : listOrden) {
+                    if (orden.getTecnico().getIdentificacion().equals(identificacion)) {
+                        ordenesAsignadas++;
+                    }
+                }
+                if (ordenesAsignadas < 2) {
+                    return tecnico;
+                }
             }
         }
-          return 0.0; // Retorna 0 si no se encuentra el servicio 
-    } */
-    public OrdenServicio generarOrdenServicio(Cliente cliente, Tecnico tecnico, Date fecha, String codigo, TipoVehiculo tipoVehiculo, ArrayList<DetalleServicio> detalles) {
+        return null;
+    }
+
+    // Selecciona un técnico aleatorio que tenga menos de 2 órdenes asignadas
+    public Tecnico seleccionarTecnicoAleatorio() {
+        List<Tecnico> tecnicosDisponibles = new ArrayList<>();
+        for (Tecnico tecnico : listTecni) {
+            int ordenesAsignadas = 0;
+            for (OrdenServicio orden : listOrden) {
+                if (orden.getTecnico().getIdentificacion().equals(tecnico.getIdentificacion())) {
+                    ordenesAsignadas++;
+                }
+            }
+            if (ordenesAsignadas < 2) {
+                tecnicosDisponibles.add(tecnico);
+            }
+        }
+        if (tecnicosDisponibles.isEmpty()) {
+            return null;
+        }
+        Random random = new Random();
+        return tecnicosDisponibles.get(random.nextInt(tecnicosDisponibles.size()));
+    }
+
+    public OrdenServicio listaOrdenEnSistema(Cliente cliente, Tecnico tecnico, Date fecha, String codigo, TipoVehiculo tipoVehiculo, ArrayList<DetalleServicio> detalles) {
         OrdenServicio nuevaOrden = new OrdenServicio(cliente, tecnico, fecha, codigo, calcularTotalOrden(detalles), tipoVehiculo, detalles);
         listOrden.add(nuevaOrden);
         return nuevaOrden;

@@ -366,7 +366,7 @@ public class Vista {
 
             double subtotal = cantidad* servicio.getPrecio();
 
-            ordenACalcular.add(new DetalleServicio(cantidad,controlador.servicioPorCodigo(codigoString),subtotal ));
+            ordenACalcular.add(new DetalleServicio(cantidad,servicio,subtotal ));
 
             //evitar bucle infinito
             System.out.print("Ingrese código del servicio: ");
@@ -376,6 +376,11 @@ public class Vista {
             //AQUI VA CODIGO QUE COMUNICA CON EL CONTROLADOR
             System.out.println("Total a pagar:");
             System.out.println(controlador.calcularTotalOrden(ordenACalcular));
+
+            
+
+            //Guardando datos en sistema
+            controlador.listaOrdenEnSistema(clienteSeleccionado,null,null,null,null,null);
 
 
 
