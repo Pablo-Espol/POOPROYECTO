@@ -556,26 +556,31 @@ public class Vista {
             System.out.println("Ingrese el año que desea consultar: ");
             int anio = scanner.nextInt();
             
-            System.out.println("Ingrese el mes que desea consultar (ingrese un número del 1 - 12): ");
-            int mess = scanner.nextInt();
+            int opcionMes;
+            do{
+                System.out.println("Ingrese el mes que desea consultar (ingrese un número del 1 - 12): ");
+                int mess = scanner.nextInt();
 
-            Map<String, Double> totalPorTecnico = new HashMap<>();
+                Map<String, Double> totalPorTecnico = new HashMap<>();
         
-            for (OrdenServicio orden : controlador.getListOrden()){
+                for (OrdenServicio orden : controlador.getListOrden()){
             
-                LocalDate fecha = orden.getFechaServicio();
-                int ordenAnio = fecha.getYear();
-                int ordenMes = fecha.getMonthValue();
+                    LocalDate fecha = orden.getFechaServicio();
+                    int ordenAnio = fecha.getYear();
+                    int ordenMes = fecha.getMonthValue();
 
-                if (ordenAnio == anio && ordenMes == mess){
-                    String tecnicoNombre = orden.getTecnico().getNombre();
-                    double ordenTotal = orden.getTotalOrden();
+                    if (ordenAnio == anio && ordenMes == mess){
+                        String tecnicoNombre = orden.getTecnico().getNombre();
+                        double ordenTotal = orden.getTotalOrden();
 
-                    totalPorTecnico.put(tecnicoNombre, totalPorTecnico.getOrDefault(tecnicoNombre,0.0)+ordenTotal);
-            }
-
+                        totalPorTecnico.put(tecnicoNombre, totalPorTecnico.getOrDefault(tecnicoNombre,0.0)+ordenTotal);
+                    }
+                }
             
-        }
+                
+          
+    
+
         System.out.println("\n Reporte de Atenciones por Tecnico ");
         System.out.printf("%-25s %10s\n", "Tecnico", "Total");
     
@@ -589,15 +594,15 @@ public class Vista {
         
 
         //Regresar al menu principal
-        System.out.println("\n¿Desea realizar otra consulta?");
+        System.out.println("\n¿Desea consultar otro mes del mismo ano?");
         System.out.println("1. Sí, consultar otro mes");
         System.out.println("2. No, volver al menú principal");
         System.out.print("Seleccione una opción: ");
-        opcion = scanner.nextInt();
+        opcionMes = scanner.nextInt();
 
-        } while (opcion == 1); {
+        } while (opcionMes == 1); {
 
-        }
+        
     
 
         }
