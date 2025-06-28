@@ -14,7 +14,7 @@ public abstract class Personal {
     private String direccion;
     private String telefono;
 
-    public Personal(String identificacion, String nombre, String direccion, String telefono) {
+    public Personal(String identificacion, String nombre, String telefono, String direccion) {
         this.identificacion = identificacion;
         this.nombre = nombre;
         this.direccion = direccion;
