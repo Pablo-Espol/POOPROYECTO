@@ -188,7 +188,11 @@ public class Vista {
         }else{
             System.out.println("El tecnico ya existe");
         }
-        System.out.println(controlador.getListTecni());
+        System.out.println("<-----LISTA DE TECNICOS----->");
+        for (Tecnico cadaTecnico : controlador.getListTecni()) {
+            System.out.println(cadaTecnico.toString());
+        }
+        System.out.println();
     
     }
     public void eliminarTecnico(Scanner scanner) {
