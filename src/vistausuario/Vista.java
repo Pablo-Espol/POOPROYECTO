@@ -551,10 +551,11 @@ public class Vista {
     // Metodo reporte de atenciones por tecnico
     
     public void reporteAtencionesporTecnico(Scanner scanner){
-        int opcion;
+        int opcionAnio;
         do{
             System.out.println("Ingrese el año que desea consultar: ");
             int anio = scanner.nextInt();
+            
             System.out.println("Ingrese el mes que desea consultar (ingrese un número del 1 - 12): ");
             int mess = scanner.nextInt();
 
