@@ -81,8 +81,34 @@ public class Vista {
                 System.out.println(cadaCliente.toString());
             }
     }
-    
+
+    public void administrarClientes(Scanner scanner){
+        int opcion=0;
+
+        do{
+            System.out.println("1. Agregar Cliente");
+            System.out.println("2. Regresar al menu principal");
+            System.out.print("Seleccione una opcion: ");
+
+            opcion = scanner.nextInt();
+            
+            switch (opcion) {
+                case 1:
+                    agregarCliente(scanner);
+                    break;
+                case 2:
+                    System.out.println("Saliendo del menu de clientes");
+                    break;
+                default:
+                    System.out.println("Opcion no valida, intente nuevamente.");
+            }
+            
+        }while (opcion != 2);
+        
            
+
+    }
+
     //Metodo para Adminnistar proveedor
 
     //Agregar Proveedor
