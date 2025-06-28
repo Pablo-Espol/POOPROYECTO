@@ -581,8 +581,10 @@ public class Vista {
         if (totalPorTecnico.isEmpty()){
             System.out.println("No se encontraron ordenes del periodo ingresado.");
         }else {
-            
+            for (Map.Entry<String, Double> entry : totalPorTecnico.entrySet()) {
+                System.out.printf("%-25s $%9.2f\n", entry.getKey(), entry.getValue());
             }
+        }
         
 
         //Regresar al menu principal
