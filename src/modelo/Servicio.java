@@ -71,11 +71,10 @@ public class Servicio {
 
     @Override
     public String toString() {
-        return "{" +
+        return 
             " codigo='" + getCodigo() + "'" +
             ", nombre='" + getNombre() + "'" +
-            ", precio='" + getPrecio() + "'" +
-            "}";
+            ", precio='" + getPrecio() + "'";
     }
     
 

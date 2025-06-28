@@ -151,7 +151,7 @@ public class ControlTecno {
         listTecni.add(new Tecnico(identificacion, nombre, telefono,especialidad));
         return null;
     }
-
+//Metodo para Eliminar un Tecnico de la Lista
     public boolean eliminarTecnico(String identificacion, Scanner scanner){
         for (int i=0;i< listTecni.size();i++){
             Tecnico tecnico = listTecni.get(i);

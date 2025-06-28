@@ -76,7 +76,7 @@ public class Vista {
             else{
                 System.out.println("El cliente ya existe");
             }
-            System.out.println("<-----LISTA DE CLIENTES----->");
+            System.out.println("<-----LISTA DE CLIENTES ACTUALIZADA----->");
             for (Cliente cadaCliente : controlador.getListClient()) {
                 System.out.println(cadaCliente.toString());
             }
@@ -132,7 +132,7 @@ public class Vista {
             System.out.println("El proveedor ya existe");
         }
         
-        System.out.println("<-----LISTA DE PROVEEDORES----->");
+        System.out.println("<-----LISTA DE PROVEEDORES ACTUALIZADA----->");
         for (Proveedor cadaProveedor : controlador.getListSuplier()) {
             System.out.println(cadaProveedor.toString());
         }
@@ -188,7 +188,7 @@ public class Vista {
         }else{
             System.out.println("El tecnico ya existe");
         }
-        System.out.println("<-----LISTA DE TECNICOS----->");
+        System.out.println("<-----LISTA DE TECNICOS ACTUALIZADA----->");
         for (Tecnico cadaTecnico : controlador.getListTecni()) {
             System.out.println(cadaTecnico.toString());
         }
@@ -240,13 +240,16 @@ public class Vista {
     public void agregarServicio(Scanner scanner){
         System.out.println("Agregar Servicio ");
         scanner.nextLine();
-        System.out.println("Ingrese el nombre del servicio");
+        System.out.println("Ingrese el nombre del servicio:");
         String nombre= scanner.nextLine();
-        System.out.println("Ingrese el precio del servicio");
+        System.out.println("Ingrese el precio del servicio:");
         double precio = scanner.nextDouble();
         controlador.agregarServicio(nombre, precio);
         System.out.println("El servicio fue agregado exitosamente");
-        System.out.println(controlador.getListService());
+        System.out.println("<-----LISTA DE SERVICIOS ACTUALIZADA----->");
+        for (Servicio cadaServicio : controlador.getListService()) {
+            System.out.println(cadaServicio.toString());
+        }
 
 
 
@@ -263,7 +266,10 @@ public class Vista {
 
         if (servicio != null) {
             System.out.println("El servicio fue editado exitosamente");
-            System.out.println(controlador.getListService());
+            System.out.println("<-----LISTA DE SERVICIOS ACTUALIZADA----->");
+            for (Servicio cadaServicio : controlador.getListService()) {
+            System.out.println(cadaServicio.toString());
+            }
             System.out.println("Historial de precios del servicio:");
             for (HistorialPrecios historial : servicio.getListHistorialPrecios()) {
                 System.out.println(historial);
