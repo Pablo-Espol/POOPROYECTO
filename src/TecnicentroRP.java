@@ -23,7 +23,7 @@ Scanner sc = new Scanner(System.in);
       switch (opcion){
        
         case 1:
-          vista.administrarClientes(sc);          
+         vista.administrarClientes(sc);          
           break;
         case 2:
           vista.administrarProveeddores(sc);
@@ -49,6 +49,9 @@ Scanner sc = new Scanner(System.in);
         case 9:
           vista.reporteAtencionesporTecnico(sc);
         break;
+        case 10:
+          System.out.println("Gracias por usar el sistema. ¡Hasta luego!");
+          break;
 
       }
 
