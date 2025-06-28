@@ -105,12 +105,9 @@ public class Vista {
             
         }while (opcion != 2);
         
-           
-
     }
 
     //Metodo para Adminnistar proveedor
-
     //Agregar Proveedor
     public void agregarProveedor(Scanner scanner){
         System.out.print("Ingrese la identificacion del proveedor: ");
