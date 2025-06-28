@@ -594,13 +594,14 @@ public class Vista {
         
 
         //Regresar al menu principal
-        System.out.println("\n¿Desea consultar otro mes del mismo ano?");
+        System.out.println("\n¿Desea consultar otro mes del mismo año?");
         System.out.println("1. Sí, consultar otro mes");
-        System.out.println("2. No, volver al menú principal");
+        System.out.println("2. No, cambiar año o volver al menú principal");
         System.out.print("Seleccione una opción: ");
         opcionMes = scanner.nextInt();
 
-        } while (opcionMes == 1); {
+    } while (opcionMes == 1); 
+
 
         
     
