@@ -37,7 +37,7 @@ public class Vista {
         System.out.println("10. Salir");
 
     }
-    //Metodo para agregar cliente
+//Metodo para agregar cliente
 
      public void agregarCliente(Scanner scanner){
               System.out.print("Ingrese la identificacion del cliente: ");
@@ -45,12 +45,12 @@ public class Vista {
               String id = scanner.nextLine();
               System.out.print("Ingrese el nombre del cliente: ");
               String nombre = scanner.nextLine();
-              System.out.println("Ingrese el telefono: ");
+              System.out.print("Ingrese el telefono: ");
               String telefono = scanner.nextLine();
-              System.out.println("Ingrese la dirección: ");
+              System.out.print("Ingrese la dirección: ");
               String direccion = scanner.nextLine();
 
-              //Asegurando que el tipo cliente sea válido
+//Asegurando que el tipo cliente sea válido
             TipoCliente tipoCliente = null;
             while (tipoCliente == null) {
                 System.out.print("Ingrese el tipo de cliente (PERSONAL o EMPRESARIAL): ");
@@ -76,8 +76,10 @@ public class Vista {
             else{
                 System.out.println("El cliente ya existe");
             }
-
-            System.out.println(controlador.getListClient());
+            System.out.println("<-----LISTA DE CLIENTES----->");
+            for (Cliente cadaCliente : controlador.getListClient()) {
+                System.out.println(cadaCliente.toString());
+            }
     }
 
     public void administrarClientes(Scanner scanner){
@@ -116,9 +118,9 @@ public class Vista {
         String id = scanner.nextLine();
         System.out.print("Ingrese el nombre del proveedor: ");
         String nombre = scanner.nextLine();
-        System.out.println("Ingrese el telefono: ");
+        System.out.print("Ingrese el telefono: ");
         String telefono = scanner.nextLine();
-        System.out.println("Ingrese la descripcion: ");
+        System.out.print("Ingrese la descripción: ");
         String descripcion = scanner.nextLine();
          
 
@@ -130,7 +132,10 @@ public class Vista {
             System.out.println("El proveedor ya existe");
         }
         
-        System.out.println(controlador.getListSuplier());
+        System.out.println("<-----LISTA DE PROVEEDORES----->");
+        for (Proveedor cadaProveedor : controlador.getListSuplier()) {
+            System.out.println(cadaProveedor.toString());
+        }
     }
 
      public void administrarProveeddores(Scanner scanner){
