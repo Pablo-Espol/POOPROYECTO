@@ -9,6 +9,13 @@
             "name": "TecnicentroRP",
             "request": "launch",
             "mainClass": "TecnicentroRP",
+            "projectName": "POOPROYECTO_3aed6546"
+        },
+        {
+            "type": "java",
+            "name": "TecnicentroRP",
+            "request": "launch",
+            "mainClass": "TecnicentroRP",
             "projectName": "POOPROYECTO_b447eafa"
         },
         {

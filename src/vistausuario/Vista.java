@@ -570,13 +570,9 @@ public class Vista {
 
                 totalPorTecnico.put(tecnicoNombre, totalPorTecnico.getOrDefault(tecnicoNombre,0.0)+ordenTotal);
             }
-        System.out.println("/n Reporte de Atenciones por Tecnico ");
+        System.out.println("\n Reporte de Atenciones por Tecnico ");
         System.out.printf("%-25s %10s\n", "Tecnico", "Total");
-
-        for(Map.Entry<String,Double> entry : totalPorTecnico.entrySet()){
-            System.out.printf("%-25s $%9.2f\n", entry.getKey(),entry.getValue());
-
-        }
+    
         if (totalPorTecnico.isEmpty()){
             System.out.println("No se encontraron ordenes del periodo ingresado.");
         }
