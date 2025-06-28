@@ -50,7 +50,7 @@ Scanner sc = new Scanner(System.in);
           vista.reporteAtencionesporTecnico(sc);
         break;
         case 10:
-          System.out.println("Gracias por usar el sistema. ¡Hasta luego!");
+          System.out.println("Gracias por usar nuestro sistema. ¡Hasta luego!");
           break;
 
       }
