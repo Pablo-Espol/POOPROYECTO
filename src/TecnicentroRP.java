@@ -23,7 +23,7 @@ Scanner sc = new Scanner(System.in);
       switch (opcion){
        
         case 1:
-          
+          vista.administrarClientes(sc);          
           break;
         case 2:
           vista.administrarProveeddores(sc);
