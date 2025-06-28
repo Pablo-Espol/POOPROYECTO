@@ -578,7 +578,7 @@ public class Vista {
                 }
     
         if (totalPorTecnico.isEmpty()){
-            System.out.println("No se encontraron ordenes del periodo ingresado.");
+            System.out.println("No se encontraron reportes en ese periodo.");
         }else {
             System.out.println("\n Reporte de Atenciones por Tecnico ");
             System.out.printf("%-25s %10s\n", "Tecnico", "Total");
@@ -588,7 +588,7 @@ public class Vista {
         }
         
         //Regresar al menu principal
-        System.out.println("\n¿Desea reealizar otra consulta?");
+        System.out.println("\n¿Desea realizar otra consulta?");
         System.out.println("1. Consultar otro mes");
         System.out.println("2. Cambiar año");
         System.out.println("3. Volver al menú principal");
