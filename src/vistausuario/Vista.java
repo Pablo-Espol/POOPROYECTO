@@ -601,14 +601,14 @@ public class Vista {
         opcionMes = scanner.nextInt();
 
     } while (opcionMes == 1); 
+    System.out.println("\n¿Desea consultar otro año?");
+    System.out.println("1. Sí, consultar otro año");
+    System.out.println("2. No, volver al menú principal");
+    System.out.print("Seleccione una opción: ");
+    opcionAnio = scanner.nextInt();
+} while(opcionAnio == 1);
+    }
 
-
-        
-    
-
-        }
-        
-        
 
     public void reporteIngresosPorServicio(Scanner scanner){
         System.out.println("Ingrese el año del servicio a consultar: ");
