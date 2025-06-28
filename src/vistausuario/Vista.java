@@ -576,39 +576,36 @@ public class Vista {
                         totalPorTecnico.put(tecnicoNombre, totalPorTecnico.getOrDefault(tecnicoNombre,0.0)+ordenTotal);
                     }
                 }
-            
-                
-          
-    
-
-        System.out.println("\n Reporte de Atenciones por Tecnico ");
-        System.out.printf("%-25s %10s\n", "Tecnico", "Total");
     
         if (totalPorTecnico.isEmpty()){
             System.out.println("No se encontraron ordenes del periodo ingresado.");
         }else {
+            System.out.println("\n Reporte de Atenciones por Tecnico ");
+            System.out.printf("%-25s %10s\n", "Tecnico", "Total");
             for (Map.Entry<String, Double> entry : totalPorTecnico.entrySet()) {
                 System.out.printf("%-25s $%9.2f\n", entry.getKey(), entry.getValue());
             }
         }
         
-
         //Regresar al menu principal
-        System.out.println("\n¿Desea consultar otro mes del mismo año?");
-        System.out.println("1. Sí, consultar otro mes");
-        System.out.println("2. No, cambiar año o volver al menú principal");
+        System.out.println("\n¿Desea reealizar otra consulta?");
+        System.out.println("1. Consultar otro mes");
+        System.out.println("2. Cambiar año");
+        System.out.println("3. Volver al menú principal");
         System.out.print("Seleccione una opción: ");
         opcionMes = scanner.nextInt();
 
-    } while (opcionMes == 1); 
-    System.out.println("\n¿Desea consultar otro año?");
-    System.out.println("1. Sí, consultar otro año");
-    System.out.println("2. No, volver al menú principal");
-    System.out.print("Seleccione una opción: ");
-    opcionAnio = scanner.nextInt();
-} while(opcionAnio == 1);
-    }
+    if (opcionMes == 2){
+        break;
+       }
+        } while (opcionMes == 1);
 
+        if (opcionMes == 3) {
+            break; // Sale del método y regresa al menú principal
+        }
+    } while (true);
+}
+        
 
     public void reporteIngresosPorServicio(Scanner scanner){
         System.out.println("Ingrese el año del servicio a consultar: ");
