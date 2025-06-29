@@ -305,7 +305,8 @@ public class Vista {
         do{
             System.out.println("1. Agregar Servicio");
             System.out.println("2. Editar Servicio");
-            System.out.println("3. Regresar al menu principal");
+            System.out.println("3. Lista de Servicios");
+            System.out.println("4. Regresar al menu principal");
             System.out.println("Seleccione una opcion:");
 
             opcion= scanner.nextInt();
@@ -317,12 +318,16 @@ public class Vista {
                 case 2:
                 editarServicio(scanner);
                 break;  
-                case 3: 
+                case 3:
+                System.out.println("<-----LISTA DE SERVICIOS------->");
+                for (Servicio servicio : controlador.getListService()) {
+                    System.out.println(servicio.toString());
+                }
+                break;
+                case 4: 
                 System.out.println("Saliendo del menu de servicios");}
 
-
-
-          }  while (opcion != 3);  
+          }  while (opcion != 4);  
 
 
         
