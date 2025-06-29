@@ -176,8 +176,6 @@ public class Vista {
 
     }
 
-
-
     //Metodo para administrar tecnicos
     public void agregarTecnico(Scanner scanner){
         System.out.println("Agregar Tecnico");
@@ -247,8 +245,7 @@ public class Vista {
             }
             
         }while (opcion != 4);
-        
-           
+             
 
     }
 
@@ -268,9 +265,6 @@ public class Vista {
         for (Servicio cadaServicio : controlador.getListService()) {
             System.out.println(cadaServicio.toString());
         }
-
-
-
 
 
     }
@@ -324,7 +318,6 @@ public class Vista {
                     System.out.println(servicio.toString());
                 }
                 break;
-
                 case 4: 
                 System.out.println("Saliendo del menu de servicios");}
 
@@ -332,17 +325,10 @@ public class Vista {
 
           }  while (opcion != 4);  
 
-
-        
-
-        
     }
 
     //administrar Orden de servicios
 
-
-
-     
     //Genera la orden
     protected void generarOrden(Scanner scanner){
         ordenACalcular = new ArrayList<>();
@@ -574,8 +560,6 @@ public class Vista {
     }
 
     
-
-
     
     // Metodo reporte de atenciones por tecnico
     

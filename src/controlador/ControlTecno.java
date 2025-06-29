@@ -393,13 +393,8 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
                         
                     }
                 }
-
-
-
-                
+ 
             }
-            
-
             
                 
             }
@@ -413,17 +408,7 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
 
             }
 
-
-
         }
-
-        
-
-
-
-
-
-
 
 }
 
