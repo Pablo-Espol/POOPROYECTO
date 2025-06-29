@@ -324,14 +324,25 @@ public class Vista {
                     System.out.println(servicio.toString());
                 }
                 break;
+
                 case 4: 
                 System.out.println("Saliendo del menu de servicios");}
 
+
+
           }  while (opcion != 4);  
+
+
+        
+
         
     }
 
-    //administrar Orden de servicios    
+    //administrar Orden de servicios
+
+
+
+     
     //Genera la orden
     protected void generarOrden(Scanner scanner){
         ordenACalcular = new ArrayList<>();
@@ -533,7 +544,7 @@ public class Vista {
             System.out.println("Perido de facturación: " + mes + "-"+ ano );
             System.out.println("Detalle de servicios:");
             System.out.println("#Placa      Fecha       Tipo        Servicio        Cantidad        Total");
-            controlador.panelDeFacturas(clienteOrdenPorID);
+            controlador.panelDeFacturas(clienteOrdenPorID, Integer.parseInt(ano), Integer.parseInt(mes));
         }
     }
 
