@@ -2,10 +2,13 @@ package vistausuario;
 
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.util.Map;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.ArrayList;
 import java.util.Scanner;
 import controlador.ControlTecno;
@@ -518,20 +521,36 @@ public class Vista {
         String codigoEmpresa = scanner.nextLine();
 
         OrdenServicio clienteOrdenPorID = controlador.clientePorId(codigoEmpresa);  //retorna el Cliente por el ID
-        
+        while (clienteOrdenPorID == null) {
+            System.out.println("ID invalida, no existe en la base de Datos");
+            System.out.print("Ingrese el codigo de la Empresa (ID):");
+            codigoEmpresa = scanner.nextLine();
+            clienteOrdenPorID = controlador.clientePorId(codigoEmpresa);
+        }
         if (clienteOrdenPorID.getCliente().getTipoCliente().equals(TipoCliente.EMPRESARIAL)) {
             System.out.print("Ingrese el año:");
             String ano= scanner.nextLine();
-            System.out.println("Ingrese el mes: ");
+            int anoNumero = Integer.parseInt(ano);
+            System.out.print("Ingrese el mes: ");
             
             String mes = scanner.nextLine();
+            int mesNumero = Integer.parseInt(mes);
+            Month mesPalabra = Month.of(mesNumero); //Mes en Ingles
+            Locale locale = Locale.forLanguageTag("es-ES"); 
+            String nombreMes = mesPalabra.getDisplayName(TextStyle.FULL, locale).toUpperCase(); //Mes en español transformado
 
             System.out.println("Empresa: " + clienteOrdenPorID.getCliente().getNombre());
-            System.out.println("Perido de facturación: " + mes + "-"+ ano );
+            System.out.println("Perido de facturación: " + nombreMes + "-"+ ano );
             System.out.println("Detalle de servicios:");
-            System.out.println("#Placa      Fecha       Tipo        Servicio        Cantidad        Total");
-            controlador.panelDeFacturas(clienteOrdenPorID, Integer.parseInt(ano), Integer.parseInt(mes));
+            System.out.printf("%-10s %-8s %-12s %-35s %8s %12s%n",
+    "#Placa", "Fecha", "Tipo", "Servicio", "Cantidad", "Total");
+
+            controlador.panelDeFacturas(clienteOrdenPorID,anoNumero,mesNumero);
+        }else{
+            System.out.println("Cliente empresarial no encontrado!. Asegurese que el cliente sea Empresarial");
         }
+
+    
     }
 
     //Mini Menu

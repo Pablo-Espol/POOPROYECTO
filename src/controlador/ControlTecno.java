@@ -307,7 +307,7 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
         return null; //si no encuentra la identificacion del cliente
     }
 
-    public void panelDeFacturas(OrdenServicio clientePorOrdenServicio,int anioBuscado,int mesBuscado) { //recibe el tipo cliente empresarial
+ public void panelDeFacturas(OrdenServicio clientePorOrdenServicio,int anioBuscado,int mesBuscado) { //recibe el tipo cliente empresarial
 
     boolean existeAnio = false;
 
