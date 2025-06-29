@@ -542,7 +542,7 @@ public class Vista {
             System.out.println("Empresa: " + clienteOrdenPorID.getCliente().getNombre());
             System.out.println("Perido de facturación: " + nombreMes + "-"+ ano );
             System.out.println("Detalle de servicios:");
-            System.out.printf("%-10s %-8s %-12s %-35s %8s %12s%n",
+            System.out.printf("%-10s %-8s %-12s %-35s %-8s %12s%n",
     "#Placa", "Fecha", "Tipo", "Servicio", "Cantidad", "Total");
 
             controlador.panelDeFacturas(clienteOrdenPorID,anoNumero,mesNumero);
