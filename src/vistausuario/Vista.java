@@ -328,18 +328,10 @@ public class Vista {
                 System.out.println("Saliendo del menu de servicios");}
 
           }  while (opcion != 4);  
-
-
-        
-
         
     }
 
-    //administrar Orden de servicios
-
-
-
-     
+    //administrar Orden de servicios    
     //Genera la orden
     protected void generarOrden(Scanner scanner){
         ordenACalcular = new ArrayList<>();
