@@ -1,6 +1,8 @@
 package controlador;
 
 import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.TextStyle;
 import java.util.*;
 import modelo.*;
 
@@ -305,7 +307,44 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
         return null; //si no encuentra la identificacion del cliente
     }
 
-    public void panelDeFacturas(OrdenServicio clientePorOrdenServicio) { //recibe el tipo cliente empresarial
+    public void panelDeFacturas(OrdenServicio clientePorOrdenServicio,int anioBuscado,int mesBuscado) { //recibe el tipo cliente empresarial
+
+    boolean existeAnio = false;
+
+    // Primero se verifica si hay al menos una orden con ese año
+    for (OrdenServicio orden : listOrden) {
+        if (orden.getFechaServicio().getYear() == anioBuscado &&
+            orden.getCliente().getIdentificacion().equals(clientePorOrdenServicio.getCliente().getIdentificacion())) {
+            existeAnio = true;
+            break;
+        }
+    }
+
+    if (!existeAnio) {
+        System.out.println("No existen órdenes para el año " + anioBuscado + " del cliente.");
+        return; // se detiene el método
+    }
+    // Verificar si existe al menos una orden con ese mes para el cliente en el año buscado
+    boolean existeMes = false;
+    Month mesPalabra = Month.of(mesBuscado); //Mes en ingles
+    Locale locale = Locale.forLanguageTag("es-ES"); 
+    String nombreMes = mesPalabra.getDisplayName(TextStyle.FULL, locale).toUpperCase(); //Mes en Español
+    for (OrdenServicio orden : listOrden) {
+
+
+        if (orden.getCliente().getIdentificacion().equals(clientePorOrdenServicio.getCliente().getIdentificacion())
+            && orden.getFechaServicio().getYear() == anioBuscado
+            && orden.getFechaServicio().getMonthValue() == mesBuscado) {
+            existeMes = true;
+            mesPalabra = orden.getFechaServicio().getMonth();
+            break;
+        }
+    }
+    if (!existeMes) {
+        System.out.println("No existen órdenes para el mes de " + nombreMes +
+            " del año " + anioBuscado + " para el cliente.");
+        return;
+    }
         double sumaTotal = 0.0;
         for (OrdenServicio esaOrden : listOrden) {
             if (esaOrden.getCliente().getIdentificacion().equals(clientePorOrdenServicio.getCliente().getIdentificacion())) {
@@ -319,9 +358,11 @@ public double calcularTotalOrden(ArrayList<DetalleServicio> detalles) {
                 for (DetalleServicio eseServicio : esaOrden.getServicios()) {
                     String nombreServicio = eseServicio.getServicio().getNombre();
                     int cantidad = eseServicio.getCantidad();
-                    double total = esaOrden.getTotalOrden();
+                    double subtotal = eseServicio.getSubtotal();
 
-                    System.out.println(placa + "      " + dia + "-" + mes + "     " + tipoVehiculo + "        " + nombreServicio + "      " + cantidad + "        " + total);
+                    double total = esaOrden.getTotalOrden();
+                    String formato = "%-10s %-8s %-12s %-35s %8d %12.2f%n";
+                    System.out.printf(formato, placa, dia + "-" + mes, tipoVehiculo, nombreServicio, cantidad, subtotal);
                 }
                 sumaTotal += esaOrden.getTotalOrden();
             }
