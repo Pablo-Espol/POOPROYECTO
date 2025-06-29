@@ -102,6 +102,7 @@ public class Vista {
                     for (Cliente cadaCliente : controlador.getListClient()){
                         System.out.println(cadaCliente.toString());
                     }
+                    break;
                 case 3:
                     System.out.println("Saliendo del menu de clientes");
                     break;
@@ -109,7 +110,7 @@ public class Vista {
                     System.out.println("Opcion no valida, intente nuevamente.");
             }
             
-        }while (opcion != 2);
+        }while (opcion != 3);
         
     }
 
@@ -146,7 +147,8 @@ public class Vista {
 
         do{
             System.out.println("1. Agregar Proveedor");
-            System.out.println("2. Regresar al menu principal");
+            System.out.println("2. Lista de Proveedores");
+            System.out.println("3. Regresar al menu principal");
             System.out.print("Seleccione una opcion: ");
 
             opcion = scanner.nextInt();
@@ -155,14 +157,20 @@ public class Vista {
                 case 1:
                     agregarProveedor(scanner);
                     break;
-                case 2:
+                case 2: 
+                    System.out.println("<-----LISTA DE PROVEEDORES------->");
+                    for (Proveedor cadaProveedor : controlador.getListSuplier()) {
+                        System.out.println(cadaProveedor.toString());
+                    }
+                    break;
+                case 3:
                     System.out.println("Regresando al menu principal");
                     break;
                 default:
                     System.out.println("Opcion no valida, intente nuevamente.");
             }
             
-        }while (opcion != 2);
+        }while (opcion != 3);
         
            
 
@@ -213,7 +221,8 @@ public class Vista {
         do{
             System.out.println("1. Agregar Tecnico");
             System.out.println("2. Eliminar Tecnico");
-            System.out.println("3. Regresar al menu principal");
+            System.out.println("3. Lista de Tecnicos");
+            System.out.println("4. Regresar al menu principal");
             System.out.print("Seleccione una opcion: ");
 
             opcion = scanner.nextInt();
@@ -225,13 +234,19 @@ public class Vista {
                 case 2:
                     eliminarTecnico(scanner);
                     break;
-                case 3: 
+                case 3:
+                    System.out.println("<-----LISTA DE TÉCNICOS------->");
+                    for (Tecnico cadaTecnico : controlador.getListTecni()) {
+                        System.out.println(cadaTecnico.toString());
+                    }
+                    break;
+                case 4: 
                     System.out.println("Saliendo del menu de servicios");
                 default:
                     System.out.println("Opcion no valida, intente nuevamente.");
             }
             
-        }while (opcion != 3);
+        }while (opcion != 4);
         
            
 
