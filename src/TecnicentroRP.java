@@ -9,6 +9,7 @@ public static void main(String[] args) {
 ControlTecno controlador = new ControlTecno();
 
 Vista vista = new Vista(controlador);
+VistaCliente vistaCliente = new VistaCliente(controlador);
 
 controlador.inicializarApp();
 
@@ -23,7 +24,7 @@ Scanner sc = new Scanner(System.in);
       switch (opcion){
        
         case 1:
-         vista.administrarClientes(sc);          
+         vistaCliente.administrarClientes(sc);          
           break;
         case 2:
           vista.administrarProveeddores(sc);
