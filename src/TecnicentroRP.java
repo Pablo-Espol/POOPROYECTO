@@ -8,8 +8,18 @@ public static void main(String[] args) {
 
 ControlTecno controlador = new ControlTecno();
 
+
+//Instancias de vistausuario
 Vista vista = new Vista(controlador);
 VistaCliente vistaCliente = new VistaCliente(controlador);
+VistaProveedor vistaProveedor = new VistaProveedor(controlador);
+VistaTecnicos vistaTecnicos = new VistaTecnicos(controlador);
+VistaServicios vistaServicios = new VistaServicios(controlador);
+VistaFacturaEmpresa vistaFacturaEmpresas = new VistaFacturaEmpresa(controlador);
+VistaFaltaInsumos vistaInsumosFaltantes = new VistaFaltaInsumos(controlador);
+VistaGenerarOrden vistaGenerarOrden = new VistaGenerarOrden(controlador);
+VistaReporteServicio vistaReporteServicio = new VistaReporteServicio(controlador);
+VistaReporteTecnico vistaReporteTecnico = new VistaReporteTecnico(controlador);
 
 controlador.inicializarApp();
 
@@ -27,28 +37,28 @@ Scanner sc = new Scanner(System.in);
          vistaCliente.administrarClientes(sc);          
           break;
         case 2:
-          vista.administrarProveeddores(sc);
+          vistaProveedor.administrarProveeddores(sc);
           break;
         case 3:
-          vista.administrarTecnico(sc);
+          vistaTecnicos.administrarTecnico(sc);
           break;
         case 4: 
-          vista.administrarServicios(sc);
+          vistaServicios.administrarServicios(sc);
           break;
         case 5:
-          vista.generarOrdenServicio(sc);
+          vistaGenerarOrden.generarOrdenServicio(sc);
           break;
         case 6: 
-          vista.registrarInsumosFaltantes(sc);
+          vistaInsumosFaltantes.registrarInsumosFaltantes(sc);
           break;
         case 7:
-          vista.facturasParaEmpresas(sc);
+          vistaFacturaEmpresas.facturasParaEmpresas(sc);
         break;
           case 8: 
-          vista.reporteIngresosPorServicio(sc);
+          vistaReporteServicio.reporteIngresosPorServicio(sc);
           break;
         case 9:
-          vista.reporteAtencionesporTecnico(sc);
+          vistaReporteTecnico.reporteAtencionesporTecnico(sc);
         break;
         case 10:
           System.out.println("Gracias por usar nuestro sistema. ¡Hasta luego!");
