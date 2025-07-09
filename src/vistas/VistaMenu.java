@@ -5,13 +5,13 @@ import controladores.ControlTecno;
 import modelo.*;
 
 
-public class Vista {
+public class VistaMenu {
 
 
     ControlTecno controlador;
     
 
-    public Vista(ControlTecno controlador){
+    public VistaMenu(ControlTecno controlador){
         this.controlador= controlador;
     }
 

@@ -11,7 +11,7 @@ ControlTecno controlador = new ControlTecno();
 
 
 //Instancias de vistausuario
-Vista vista = new Vista(controlador);
+VistaMenu vista = new VistaMenu(controlador);
 VistaCliente vistaCliente = new VistaCliente(controlador);
 VistaProveedor vistaProveedor = new VistaProveedor(controlador);
 VistaTecnicos vistaTecnicos = new VistaTecnicos(controlador);
