@@ -1,11 +1,12 @@
 import java.util.*;
-import vistausuario.*;
-import controlador.*;
+
+import controladores.*;
+import vistas.*;
 
 public class TecnicentroRP {
 public static void main(String[] args) {
 
-
+//Instacias de controlador
 ControlTecno controlador = new ControlTecno();
 
 

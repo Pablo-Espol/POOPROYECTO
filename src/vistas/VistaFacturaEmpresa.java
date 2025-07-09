@@ -1,11 +1,11 @@
-package vistausuario;
+package vistas;
 
 import java.time.Month;
 import java.time.format.TextStyle;
 import java.util.Locale;
 import java.util.Scanner;
 
-import controlador.ControlTecno;
+import controladores.ControlTecno;
 import modelo.OrdenServicio;
 import modelo.TipoCliente;
 

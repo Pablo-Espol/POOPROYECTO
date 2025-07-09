@@ -1,10 +1,10 @@
-package vistausuario;
+package vistas;
 
 import java.util.Scanner;
 
 import javax.naming.ldap.ControlFactory;
 
-import controlador.ControlTecno;
+import controladores.ControlTecno;
 
 public class VistaReporteServicio {
 

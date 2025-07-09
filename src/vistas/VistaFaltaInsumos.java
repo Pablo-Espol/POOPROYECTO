@@ -1,12 +1,12 @@
-package vistausuario;
+package vistas;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import controlador.ControlTecno;
+import controladores.ControlTecno;
 import modelo.Insumo;
 import modelo.Proveedor;
-import vistausuario.*;
+import vistas.*;
 
 public class VistaFaltaInsumos {
 

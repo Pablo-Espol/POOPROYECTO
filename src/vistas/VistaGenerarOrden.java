@@ -1,11 +1,11 @@
-package vistausuario;
+package vistas;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import controlador.ControlTecno;
+import controladores.ControlTecno;
 import modelo.Cliente;
 import modelo.DetalleServicio;
 import modelo.Servicio;

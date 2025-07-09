@@ -1,11 +1,11 @@
-package vistausuario;
+package vistas;
 
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import controlador.ControlTecno;
+import controladores.ControlTecno;
 import modelo.OrdenServicio;
 
 public class VistaReporteTecnico {

@@ -1,8 +1,8 @@
-package vistausuario;
+package vistas;
 
 import java.util.Scanner;
 
-import controlador.ControlTecno;
+import controladores.ControlTecno;
 import modelo.Tecnico;
 
 public class VistaTecnicos {

@@ -1,7 +1,7 @@
-package vistausuario;
+package vistas;
 import java.util.ArrayList;
 
-import controlador.ControlTecno;
+import controladores.ControlTecno;
 import modelo.*;
 
 
