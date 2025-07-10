@@ -2,7 +2,7 @@ package vistas;
 
 import java.util.Scanner;
 
-import javax.naming.ldap.ControlFactory;
+//import javax.naming.ldap.ControlFactory;
 
 import controladores.ControlTecno;
 
