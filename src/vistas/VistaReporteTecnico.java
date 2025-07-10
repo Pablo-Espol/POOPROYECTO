@@ -20,7 +20,7 @@ public class VistaReporteTecnico {
     // Metodo reporte de atenciones por tecnico
     
     public void reporteAtencionesporTecnico(Scanner scanner){
-        int opcionAnio;
+        
         do{
             System.out.println("Ingrese el año que desea consultar: ");
             int anio = scanner.nextInt();

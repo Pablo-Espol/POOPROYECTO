@@ -1,9 +1,6 @@
 package vistas;
-import java.util.ArrayList;
 
 import controladores.ControlTecno;
-import modelo.*;
-
 
 public class VistaMenu {
 

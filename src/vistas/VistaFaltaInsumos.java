@@ -6,7 +6,7 @@ import java.util.Scanner;
 import controladores.ControlTecno;
 import modelo.Insumo;
 import modelo.Proveedor;
-import vistas.*;
+
 
 public class VistaFaltaInsumos {
 
