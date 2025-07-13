@@ -2,14 +2,15 @@ package vistas;
 
 import java.util.Scanner;
 
-import controladores.ControlTecno;
+
+import controladores.ControladorCliente;
 import modelo.Cliente;
 import modelo.TipoCliente;
 
 public class VistaCliente {
-    ControlTecno controlador;
+    ControladorCliente controlador;
 
-    public VistaCliente(ControlTecno controlador){
+    public VistaCliente(ControladorCliente controlador){
         this.controlador= controlador;
     }
 
