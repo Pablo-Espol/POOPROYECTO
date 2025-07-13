@@ -33,7 +33,8 @@ public class Tecnico extends Personal {
 
     @Override
     public String toString() {
-        return super.toString() + String.format(", Especialidad: %s", especialidad);
+        return String.format("ID: %s, Nombre: %s, Teléfono: %s, Especialidad: %s", 
+            getIdentificacion(), getNombre(), getTelefono(), getEspecialidad());
     }
 
 
