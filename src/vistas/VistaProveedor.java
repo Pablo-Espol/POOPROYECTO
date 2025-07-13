@@ -1,15 +1,14 @@
 package vistas;
 
 import java.util.Scanner;
-
-import controladores.ControlTecno;
+import controladores.ControladorProveedor;
 import modelo.Proveedor;
 
 public class VistaProveedor {
 
-    ControlTecno controlador;
+    ControladorProveedor controlador;
 
-    public VistaProveedor(ControlTecno controlador){
+    public VistaProveedor(ControladorProveedor controlador){
         this.controlador= controlador;
     }
 

@@ -7,13 +7,22 @@ public class TecnicentroRP {
 public static void main(String[] args) {
 
 //Instacias de controlador
-ControlTecno controlador = new ControlTecno();
+//ControlTecno controlador = new ControlTecno();
+ControladorBase controladorBase = new ControladorBase();
+ControladorCliente controladorCliente = new ControladorCliente(controladorBase);
+ControladorProveedor controladorProveedor = new ControladorProveedor(controladorBase);
+ControladorTecnico controladorTecnico = new ControladorTecnico(controladorBase);
+ControladorServicio controladorServicio = new ControladorServicio(controladorBase);
+ControladorOrden controladorOrden = new ControladorOrden(controladorBase);
+ControladorInsumo controladorInsumo = new ControladorInsumo(controladorBase);
+ControladorFactura controladorFactura = new ControladorFactura(controladorBase);
+ControladorReporte controladorReporte = new ControladorReporte(controladorBase);
 
 
 //Instancias de vistausuario
-VistaMenu vista = new VistaMenu(controlador);
-VistaCliente vistaCliente = new VistaCliente(controlador);
-VistaProveedor vistaProveedor = new VistaProveedor(controlador);
+VistaMenu vista = new VistaMenu();
+VistaCliente vistaCliente = new VistaCliente(controladorCliente);
+VistaProveedor vistaProveedor = new VistaProveedor(controladorProveedor);
 VistaTecnicos vistaTecnicos = new VistaTecnicos(controlador);
 VistaServicios vistaServicios = new VistaServicios(controlador);
 VistaFacturaEmpresa vistaFacturaEmpresas = new VistaFacturaEmpresa(controlador);
@@ -22,7 +31,7 @@ VistaGenerarOrden vistaGenerarOrden = new VistaGenerarOrden(controlador);
 VistaReporteServicio vistaReporteServicio = new VistaReporteServicio(controlador);
 VistaReporteTecnico vistaReporteTecnico = new VistaReporteTecnico(controlador);
 
-controlador.inicializarApp();
+controladorBase.inicializarApp();
 
 Scanner sc = new Scanner(System.in);
 

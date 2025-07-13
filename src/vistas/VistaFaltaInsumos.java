@@ -3,20 +3,20 @@ package vistas;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import controladores.ControlTecno;
+
+import controladores.ControladorInsumo;
 import modelo.Insumo;
 import modelo.Proveedor;
 
 
 public class VistaFaltaInsumos {
 
-    ControlTecno controlador;
-
+    ControladorInsumo controlador;
     VistaProveedor vistaProveedor;
 
-    public VistaFaltaInsumos(ControlTecno controlador){
+    public VistaFaltaInsumos(ControladorInsumo controlador, VistaProveedor vistaProveedor){
         this.controlador= controlador;
-        this.vistaProveedor= new VistaProveedor(controlador);
+        this.vistaProveedor=  vistaProveedor;
     }
 
 
@@ -56,7 +56,7 @@ public class VistaFaltaInsumos {
     }
 
     
-    controlador.registroInsumo(descripcion, proveedorSeleccionado);
+    controlador.registrarInsumo(descripcion, proveedorSeleccionado);
 
     System.out.println(" Insumo registrado correctamente.");
     System.out.println("Debe contactar al proveedor: " + proveedorSeleccionado.getNombre());

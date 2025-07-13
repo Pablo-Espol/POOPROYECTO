@@ -1,16 +1,16 @@
 package vistas;
 
-import controladores.ControlTecno;
+//import controladores.*;
 
 public class VistaMenu {
 
 
-    ControlTecno controlador;
+    //ControlTecno controlador;
     
 
-    public VistaMenu(ControlTecno controlador){
-        this.controlador= controlador;
-    }
+   // public VistaMenu(ControlTecno controlador){
+        //this.controlador= controlador;
+    //}
 
     public void mostrarMenu(){
         System.out.println("MENU PRINCIPAL");
