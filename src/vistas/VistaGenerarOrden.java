@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import controladores.ControlTecno;
+import controladores.ControladorOrden;
 import modelo.Cliente;
 import modelo.DetalleServicio;
 import modelo.Servicio;
@@ -15,14 +15,14 @@ import modelo.TipoVehiculo;
 public class VistaGenerarOrden {
     ArrayList<DetalleServicio> ordenACalcular;
 
-    ControlTecno controlador;
+    ControladorOrden controlador;
 
     VistaTecnicos vistaTecnicos;
 
 
-    public VistaGenerarOrden(ControlTecno controlador){
+    public VistaGenerarOrden(ControladorOrden controlador, VistaTecnicos vistaTecnicos){
         this.controlador = controlador;
-        this.vistaTecnicos= new VistaTecnicos(controlador);
+        this.vistaTecnicos=  vistaTecnicos;
     }
 //administrar Orden de servicios
 
@@ -132,7 +132,7 @@ public class VistaGenerarOrden {
                 }
             }
             //Guardando datos en sistema
-            controlador.listaOrdenEnSistema(clienteSeleccionado,tecnicoAletorio,fechaDate,tipoVehiculo,placaVehiculo,ordenACalcular);
+            controlador.agregarOrdenServicio(clienteSeleccionado,tecnicoAletorio,fechaDate,tipoVehiculo,placaVehiculo,ordenACalcular);
             System.out.println("Se agregó la orden al sistema exitosamente!");
 
     }

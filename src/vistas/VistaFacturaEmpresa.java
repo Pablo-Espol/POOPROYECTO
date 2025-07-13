@@ -5,14 +5,14 @@ import java.time.format.TextStyle;
 import java.util.Locale;
 import java.util.Scanner;
 
-import controladores.ControlTecno;
+import controladores.ControladorFactura;
 import modelo.OrdenServicio;
 import modelo.TipoCliente;
 
 public class VistaFacturaEmpresa {
-     ControlTecno controlador;
+     ControladorFactura controlador;
 
-    public VistaFacturaEmpresa(ControlTecno controlador){
+    public VistaFacturaEmpresa(ControladorFactura controlador){
         this.controlador= controlador;
     }
 
@@ -49,7 +49,7 @@ public class VistaFacturaEmpresa {
             System.out.printf("%-10s %-8s %-12s %-35s %-8s %12s%n",
     "#Placa", "Fecha", "Tipo", "Servicio", "Cantidad", "Total");
 
-            controlador.panelDeFacturas(clienteOrdenPorID,anoNumero,mesNumero);
+            controlador.generarFacturaEmpresa(clienteOrdenPorID,anoNumero,mesNumero);
         }else{
             System.out.println("Cliente empresarial no encontrado!. Asegurese que el cliente sea Empresarial");
         }
