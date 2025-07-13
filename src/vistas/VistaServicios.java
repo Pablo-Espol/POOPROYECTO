@@ -2,15 +2,15 @@ package vistas;
 
 import java.util.Scanner;
 
-import controladores.ControlTecno;
+import controladores.ControladorServicio;
 import modelo.HistorialPrecios;
 import modelo.Servicio;
 
 public class VistaServicios {
 
-     ControlTecno controlador;
+     ControladorServicio controlador;
 
-    public VistaServicios(ControlTecno controlador){
+    public VistaServicios(ControladorServicio controlador){
         this.controlador= controlador;
     }
     //Administrar servicios

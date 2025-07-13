@@ -5,14 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import controladores.ControlTecno;
+import controladores.ControladorTecnico;
 import modelo.OrdenServicio;
 
 public class VistaReporteTecnico {
 
-     ControlTecno controlador;
+     ControladorTecnico controlador;
 
-    public VistaReporteTecnico(ControlTecno controlador){
+    public VistaReporteTecnico(ControladorTecnico controlador){
         this.controlador= controlador;
     }
 
