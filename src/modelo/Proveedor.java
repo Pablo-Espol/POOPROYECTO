@@ -26,6 +26,7 @@ public class Proveedor extends Personal {
     
     @Override
     public String toString() {
-        return super.toString() + String.format(", Descripción: %s", descripcion);
+        return String.format("ID: %s, Nombre: %s, Teléfono: %s, Descripción: %s", 
+            getIdentificacion(), getNombre(), getTelefono(), getDescripcion());
 }
 }
