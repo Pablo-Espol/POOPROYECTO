@@ -2,14 +2,14 @@ package vistas;
 
 import java.util.Scanner;
 
-import controladores.ControlTecno;
+import controladores.ControladorTecnico;
 import modelo.Tecnico;
 
 public class VistaTecnicos {
     
-   ControlTecno controlador;
+   ControladorTecnico controlador;
 
-    public VistaTecnicos(ControlTecno controlador){
+    public VistaTecnicos(ControladorTecnico controlador){
         this.controlador= controlador;
     }
     
@@ -26,7 +26,7 @@ public class VistaTecnicos {
         System.out.println("Ingrese la especialidad del tecnico");
         String especialidad = scanner.nextLine();
 
-        Tecnico tecnico = controlador.agregartTecnico(id, nombre, telefono,especialidad);
+        Tecnico tecnico = controlador.agregarTecnico(id, nombre, telefono,especialidad);
         
         if (tecnico == null){
             System.out.println("El tecnico fue agregado exitosamente");

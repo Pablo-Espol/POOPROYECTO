@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 //import javax.naming.ldap.ControlFactory;
 
-import controladores.ControlTecno;
+import controladores.ControladorReporte;
 
 public class VistaReporteServicio {
 
-    ControlTecno controlador;
+    ControladorReporte controlador;
 
-    public VistaReporteServicio(ControlTecno controlador){
+    public VistaReporteServicio(ControladorReporte controlador){
         this.controlador= controlador;
     }
 
@@ -24,7 +24,7 @@ public class VistaReporteServicio {
         int mes= scanner.nextInt();
         scanner.nextLine();
 
-        controlador.freporteIngresosxServicio(año,mes);
+        controlador.reporteIngresosPorServicio(año,mes);
 
     }
 }

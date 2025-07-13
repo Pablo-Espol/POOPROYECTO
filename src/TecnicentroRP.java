@@ -23,13 +23,13 @@ ControladorReporte controladorReporte = new ControladorReporte(controladorBase);
 VistaMenu vista = new VistaMenu();
 VistaCliente vistaCliente = new VistaCliente(controladorCliente);
 VistaProveedor vistaProveedor = new VistaProveedor(controladorProveedor);
-VistaTecnicos vistaTecnicos = new VistaTecnicos(controlador);
-VistaServicios vistaServicios = new VistaServicios(controlador);
-VistaFacturaEmpresa vistaFacturaEmpresas = new VistaFacturaEmpresa(controlador);
-VistaFaltaInsumos vistaInsumosFaltantes = new VistaFaltaInsumos(controlador);
-VistaGenerarOrden vistaGenerarOrden = new VistaGenerarOrden(controlador);
-VistaReporteServicio vistaReporteServicio = new VistaReporteServicio(controlador);
-VistaReporteTecnico vistaReporteTecnico = new VistaReporteTecnico(controlador);
+VistaTecnicos vistaTecnicos = new VistaTecnicos(controladorTecnico);
+VistaServicios vistaServicios = new VistaServicios(controladorServicio);
+VistaFacturaEmpresa vistaFacturaEmpresas = new VistaFacturaEmpresa(controladorFactura);
+VistaFaltaInsumos vistaInsumosFaltantes = new VistaFaltaInsumos(controladorInsumo, vistaProveedor);
+VistaGenerarOrden vistaGenerarOrden = new VistaGenerarOrden(controladorOrden, vistaTecnicos);
+VistaReporteServicio vistaReporteServicio = new VistaReporteServicio(controladorReporte);
+VistaReporteTecnico vistaReporteTecnico = new VistaReporteTecnico(controladorReporte);
 
 controladorBase.inicializarApp();
 
