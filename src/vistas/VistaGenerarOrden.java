@@ -30,7 +30,7 @@ public class VistaGenerarOrden {
     protected void generarOrden(Scanner scanner){
         ordenACalcular = new ArrayList<>();
 
-        System.out.println("------------Lista de Clientes Empresariales------------");
+        System.out.println("------------Lista de Clientes y Códigos------------");
         controlador.listaClientesEmpresariales();
 
         scanner.nextLine(); //limpia buffer
