@@ -15,6 +15,17 @@ public class ControladorOrden extends ControladorBase {
         this.listInsumosFaltantes = base.getListInsumosFaltantes();
     }
 
+    public void listaClientesEmpresariales(){
+
+        for (Cliente cliente : listClient) {
+            boolean tipoEmpresarial = cliente.getTipoCliente() == TipoCliente.EMPRESARIAL;
+
+            if (tipoEmpresarial) {
+                System.out.println("Cliente:"+ cliente.getNombre()+ " | ID(código):"+ cliente.getIdentificacion());
+            }
+        }
+    }
+
     public OrdenServicio agregarOrdenServicio(Cliente cliente, Tecnico tecnico, LocalDate fecha, 
                                             TipoVehiculo tipoVehiculo, String placaVehiculo, 
                                             ArrayList<DetalleServicio> detalles) {

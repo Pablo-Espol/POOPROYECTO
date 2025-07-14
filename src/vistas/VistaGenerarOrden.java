@@ -29,7 +29,10 @@ public class VistaGenerarOrden {
     //Genera la orden
     protected void generarOrden(Scanner scanner){
         ordenACalcular = new ArrayList<>();
-        
+
+        System.out.println("------------Lista de Clientes Empresariales------------");
+        controlador.listaClientesEmpresariales();
+
         scanner.nextLine(); //limpia buffer
         System.out.print("Ingrese ID del Cliente:");
         String id= scanner.nextLine();
@@ -47,7 +50,7 @@ public class VistaGenerarOrden {
             return;
         }
 
-        System.out.print("Ingrese la fecha del Servicio dd/MM/yyyy: ");
+        System.out.print("Ingrese la fecha de la orden del Servicio dd/MM/yyyy: ");
         String fechaServicio= scanner.nextLine();  //fecha en formato texto
        
         LocalDate fechaDate;
